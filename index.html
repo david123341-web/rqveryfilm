@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>RQ娛樂影像工作室｜作品集</title>
+<meta name="description" content="RQ娛樂影像工作室｜日系清爽的影像敘事：Podcast、短影片廣告、形象影片、證言廣告、節目製作。">
+<meta name="theme-color" content="#FF8A00">
+
+<!-- 🔥 Anti-cache：讓手機/桌機永遠抓最新版 -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<script>
+  // 每次載入都在網址後加上時間戳，保證抓到最新版本
+  (function() {
+    const url = new URL(window.location.href);
+    const cacheBuster = 'v=' + new Date().getTime();
+    if (!url.search.includes('v=')) {
+      url.search += (url.search ? '&' : '?') + cacheBuster;
+      window.location.replace(url.toString());
+    }
+  })();
+</script>
+<!-- 🔥 End Anti-cache -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600&family=Noto+Serif+TC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#FF8A00;--ink:#363636;--powder:#FFF2DF;--ink-60:rgba(54,54,54,.6);--ink-30:rgba(54,54,54,.3);--radius:14px;--shadow:0 10px 25px rgba(0,0,0,.08);--maxw:1120px;}
+*{box-sizing:border-box} html,body{margin:0;background:var(--powder);color:var(--ink);-webkit-font-smoothing:antialiased}
+body{font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.6}
+h1,h2,h3{font-family:"Noto Serif TC",serif;margin:0 0 .4em}
+a{color:var(--ink);text-decoration:none} a:hover{color:var(--orange)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:24px;position:relative}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(255,242,223,.75);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px dashed var(--ink-30)}
+.nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:36px;height:36px;border-radius:9px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-weight:700;font-size:20px;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55);cursor:pointer;}
+.brand h1{font-size:18px;letter-spacing:.5px}
+.menu{display:flex;gap:14px;font-size:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid var(--ink-30);background:#fff;box-shadow:0 2px 0 rgba(0,0,0,.04);cursor:pointer;user-select:none}
+.btn.primary{border-color:transparent;background:var(--orange);color:#fff}
+.btn.small{padding:8px 12px;font-size:13px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:36px 0}
+.lead{color:var(--ink-60)}
+.cta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+
+/* sections / bars */
+section{margin:20px 0 36px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sec-title{display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:10px;height:10px;border-radius:50%;background:var(--orange)}
+.bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:10px 0 18px}
+.search{flex:1;min-width:220px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--ink-30);border-radius:999px;padding:8px 12px}
+.search input{flex:1;border:none;outline:none;background:transparent;font-size:14px}
+.bar .right-actions{display:flex;gap:8px;align-items:center}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--ink-30);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow);position:relative}
+.card .title{font-weight:600}
+.card .meta{font-size:12px;color:var(--ink-60)}
+.card .actions{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap;justify-content:flex-end}
+.open{margin-left:auto}
+
+/* 管理按鈕（上/下移改為拖曳） */
+.card .x,.card .edit{display:none;position:absolute;top:8px;background:#000;color:#fff;border:none;border-radius:999px;width:26px;height:26px;cursor:pointer;align-items:center;justify-content:center;line-height:1}
+.card .x{right:8px}.card .edit{right:40px}
+.editing .card .x,.editing .card .edit{display:flex}
+
+/* 拖曳提示 */
+.drag-hint{display:none;position:absolute;left:10px;top:10px;width:22px;height:22px;border-radius:999px;background:#f2f2f2;border:1px solid #ddd;align-items:center;justify-content:center;font-size:14px;line-height:1;cursor:grab}
+.editing .drag-hint{display:flex}
+.card[draggable="true"]{cursor:grab}
+.card.dragging{opacity:.7}
+.card.drop-target{outline:2px dashed var(--orange);outline-offset:2px}
+
+/* embeds */
+.embeds{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:980px){.embeds{grid-template-columns:1fr}}
+.embed-card{background:#fff;border:1px solid var(--ink-30);border-radius:var(--radius);padding:12px;box-shadow:var(--shadow)}
+.embed-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 8px}
+.embed-title{font-size:16px;font-weight:600}
+.embed-btn{font-size:12px;border:1px solid var(--ink-30);border-radius:999px;background:#fff;padding:6px 10px;cursor:pointer}
+.embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000}
+.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* contact */
+.contact-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:560px){.contact-cards{grid-template-columns:1fr}}
+.contact-card{background:#fff;border:1px dashed var(--ink-30);border-radius:var(--radius);padding:16px}
+footer{padding:20px 0;color:var(--ink-60);font-size:12px}
+
+/* admin（預設隱藏；提高層級避免被擋） */
+.admin-fab{position:fixed;right:18px;bottom:18px;z-index:9999;display:none}
+.fab{border-radius:999px;border:1px solid var(--ink-30);background:#fff;padding:12px 14px;box-shadow:var(--shadow);cursor:pointer}
+.panel{position:fixed;right:18px;bottom:74px;background:#fff;border:1px solid var(--ink-30);border-radius:12px;box-shadow:var(--shadow);padding:12px;display:none;flex-direction:column;gap:8px;min-width:290px;z-index:10000}
+.panel.show{display:flex}
+.admin-tip{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;background:#000;color:#fff;font-size:12px;padding:8px 10px;border-radius:8px;opacity:.85;display:none}
+
+/* accordion categories */
+.cat{border:1px solid var(--ink-30);border-radius:14px;background:#fff;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.cat-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 14px}
+.cat-title{display:flex;align-items:center;gap:10px;font-weight:700}
+.cat-count{font-size:12px;color:var(--ink-60)}
+.cat-actions{display:flex;gap:8px}
+.cat-body{display:none;padding:12px;border-top:1px dashed var(--ink-30)}
+.cat.open .cat-body{display:block}
+
+/* covers */
+.cover{grid-column:1/-1;background:#FFF7EB;border:1px dashed var(--ink-30);border-radius:12px;padding:0;overflow:hidden}
+.cover-inner{display:grid;grid-template-columns:1fr 1.3fr;align-items:center}
+.cover-info{padding:16px}
+.cover-info h3{margin:0 0 4px;font-size:20px}
+.cover-info p{margin:0;color:var(--ink-60);font-size:13px}
+.cover-illu{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#FFE5C2,#FFF7EB)}
+.cover-illu svg{position:absolute;inset:0;width:100%;height:100%}
+.cover:hover{box-shadow:0 12px 28px rgba(0,0,0,.08)}
+
+/* login */
+.login-mask{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:11000}
+.login-card{width:min(420px,92vw);background:#fff;border:1px solid var(--ink-30);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+.login-card h3{margin:0 0 6px;font-size:18px}
+.field{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.field label{font-size:12px;color:var(--ink-60)}
+.field input{border:1px solid var(--ink-30);border-radius:10px;padding:10px 12px;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="logo" aria-label="RQ Logo">Q</div>
+      <h1 id="siteTitle" data-editable>RQ娛樂影像工作室</h1>
+    </div>
+    <nav class="menu">
+      <a href="#works" class="btn small">作品</a>
+      <a href="#contact" class="btn small">聯絡</a>
+      <a href="#about" class="btn small">關於</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" id="about">
+    <div>
+      <h2 id="heroTitle" data-editable>把生活拍成故事，把品牌拍成記憶。</h2>
+      <p class="lead" id="heroLead" data-editable>我們專注於 <strong>Podcast 節目製作、短影片廣告、形象影片、證言廣告、節目企劃與執行</strong>。極簡畫面裡，留下最剛好的情緒與光。</p>
+      <div class="cta">
+        <a id="ctaIG" class="btn primary" href="https://www.instagram.com/rqverycute" target="_blank" rel="noopener">IG 私訊</a>
+        <a id="ctaFB" class="btn" href="#" target="_blank" rel="noopener">Facebook 粉專</a>
+      </div>
+    </div>
+    <div>
+      <div class="contact-cards">
+        <div class="contact-card"><div class="sec-title" style="margin-bottom:6px"><span class="dot"></span><h3 style="font-size:16px">服務項目</h3></div>
+          <div class="pill">短影片廣告</div><div class="pill">形象影片</div><div class="pill">證言廣告</div><div class="pill">節目製作</div><div class="pill">Podcast</div>
+        </div>
+        <div class="contact-card"><div class="sec-title" style="margin-bottom:6px"><span class="dot"></span><h3 style="font-size:16px">快速資訊</h3></div>
+          <div class="meta"><strong>電洽 / 合作</strong><br><span id="quickNote" data-editable>私訊 IG 或 FB，提供大綱／預算／時程，我們 24 小時內回覆。</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <div class="sec-head"><div class="sec-title"><span class="dot"></span><h2 style="font-size:22px">立即收聽 / 觀看</h2></div></div>
+    <div class="embeds">
+      <div class="embed-card">
+        <div class="embed-head"><div class="embed-title">Podcast《白目情侶週記》</div><button class="embed-btn" id="btnEditPlaylist" style="display:none">更換清單</button></div>
+        <div class="embed"><iframe id="podcastEmbed" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+        <div class="meta" style="margin-top:6px">※ 來源：YouTube 播放清單</div>
+      </div>
+      <div class="embed-card">
+        <div class="embed-head"><div class="embed-title">精選影片</div><button class="embed-btn" id="btnEditVideo" style="display:none">更換影片</button></div>
+        <div class="embed"><iframe id="videoEmbed" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
+        <div class="meta" style="margin-top:6px">※ 可更換為任一 YouTube 影片</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="sec-head"><div class="sec-title"><span class="dot"></span><h2 style="font-size:22px">作品集</h2></div></div>
+    <div class="bar">
+      <div class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.2-4.2M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" stroke="#999" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="search" type="search" placeholder="搜尋標題或連結…">
+      </div>
+      <div class="right-actions">
+        <button id="btnToggleGroup" class="btn small">分類清單</button>
+        <button id="btnExpandAll" class="btn small">全部展開</button>
+        <button id="btnCollapseAll" class="btn small">全部收合</button>
+      </div>
+    </div>
+    <div id="catList"></div>
+    <div class="grid" id="grid" style="display:none"></div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-head"><div class="sec-title"><span class="dot"></span><h2 style="font-size:22px">聯絡我們</h2></div></div>
+    <div class="contact-cards">
+      <div class="contact-card"><h3 style="margin:0 0 6px;font-size:16px">Instagram</h3><p id="igNote" class="meta" data-editable>追蹤日常與最新作品，歡迎直接私訊洽談。</p><a id="igLink" class="btn" href="https://www.instagram.com/rqverycute" target="_blank" rel="noopener">前往 IG</a></div>
+      <div class="contact-card"><h3 style="margin:0 0 6px;font-size:16px">Facebook</h3><p id="fbNote" class="meta" data-editable>同步發布專案花絮與上線資訊，歡迎留言。</p><a id="fbLink" class="btn" href="#" target="_blank" rel="noopener">前往 FB</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="padding:0">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <small>© <span id="year"></span> <span id="footTitle">RQ娛樂影像工作室</span>. All rights reserved.</small>
+        <small class="meta">Made with ☕｜支援管理模式、搜尋、分類展開/收合、拖曳排序、匯出單檔</small>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- 管理浮動面板（登入後才顯示） -->
+<div class="admin-fab">
+  <div class="panel" id="panel">
+    <button class="btn small" id="btnSettings">設定（站點）</button>
+    <button class="btn small" id="btnAddCat">新增分類</button>
+    <button class="btn small" id="btnRenameCat">重新命名分類</button>
+    <button class="btn small" id="btnDeleteCat">刪除分類</button>
+    <button class="btn small" id="btnAdd">新增連結</button>
+    <button class="btn small" id="btnSave">儲存變更</button>
+    <button class="btn small" id="btnReset">清除儲存</button>
+    <button class="btn small" id="btnExport">匯出單檔</button>
+    <button class="btn small" id="btnLogout">登出</button>
+    <button class="btn small" id="btnExit">離開管理</button>
+  </div>
+  <button class="fab" id="btnAdmin" style="display:none">管理</button>
+</div>
+<div class="admin-tip" id="tip"></div>
+
+<!-- 登入（固定帳密；無重設） -->
+<div class="login-mask" id="loginMask"><div class="login-card">
+  <h3>登入管理後台</h3>
+  <div class="field"><label for="lgUser">帳號</label><input id="lgUser" type="text" placeholder="rqveryfilm"></div>
+  <div class="field"><label for="lgPass">密碼</label><input id="lgPass" type="password" placeholder="你的密碼"></div>
+  <div class="row">
+    <button class="btn primary small" id="btnDoLogin">登入</button>
+    <button class="btn small" id="btnCancelLogin">取消</button>
+  </div>
+</div></div>
+
+<!-- __STATE_INJECT__ -->
+
+<script>
+/* ===== 預設資料（含所有分類與連結） ===== */
+const defaultData={site:{title:"RQ娛樂影像工作室",pageTitle:"RQ娛樂影像工作室｜作品集",description:"RQ娛樂影像工作室｜日系清爽的影像敘事：Podcast、短影片廣告、形象影片、證言廣告、節目製作。",ogImage:"",heroTitle:"把生活拍成故事，把品牌拍成記憶。",heroLead:"我們專注於 Podcast 節目製作、短影片廣告、形象影片、證言廣告、節目企劃與執行。極簡畫面裡，留下最剛好的情緒與光。",igUrl:"https://www.instagram.com/rqverycute",fbUrl:"#",notes:{quick:"私訊 IG 或 FB，提供大綱／預算／時程，我們 24 小時內回覆。",ig:"追蹤日常與最新作品，歡迎直接私訊洽談。",fb:"同步發布專案花絮與上線資訊，歡迎留言。"}},embeds:{playlistId:"PLWPzSr-SQ2_oVby6sNPnVS7mzcG8Dv4Nz",featuredVideoId:"t0_lI52JDeI"},categories:[{name:"PODCAST 節目",key:"podcast",items:[{title:"《白目情侶週記》播放清單",url:"https://youtube.com/playlist?list=PLWPzSr-SQ2_oVby6sNPnVS7mzcG8Dv4Nz&si=IzthrcTC3XichKtF"}]},{name:"短影片廣告",key:"shortads",items:[{title:"短影片廣告 1",url:"https://www.instagram.com/p/DK3to-PhV25/"},{title:"短影片廣告 2",url:"https://www.instagram.com/p/DK4TC7Uytk8/"},{title:"短影片廣告 3",url:"https://www.instagram.com/reel/DGKd2p7toNV/"},{title:"短影片廣告 4",url:"https://www.instagram.com/p/DKGdXN7BSyf/"},{title:"短影片廣告 5",url:"https://www.instagram.com/p/DEjHmrfBR21/"},{title:"短影片廣告 6",url:"https://www.instagram.com/p/DDJKTiwh6vn/"},{title:"短影片廣告 7",url:"https://www.instagram.com/p/DKdr-XQTdXo/"},{title:"短影片廣告 8",url:"https://www.instagram.com/reel/DGKd2p7toNV/"},{title:"短影片廣告 9",url:"https://www.instagram.com/rqverycute/reel/DCTrqu1hP7B/"},{title:"短影片廣告 10",url:"https://www.instagram.com/p/DJRNuFRyMdy/"},{title:"短影片廣告 11",url:"https://www.instagram.com/p/DGzXkTLhyjJ/"},{title:"短影片廣告 12",url:"https://www.instagram.com/reel/DL7qshjSXMK/"}]},{name:"藏鏡人系列",key:"behind",items:[{title:"藏鏡人 1",url:"https://www.instagram.com/p/DInYfEKyuK3/"},{title:"藏鏡人 2",url:"https://www.instagram.com/p/DH370JFzFka/"},{title:"藏鏡人 3",url:"https://www.instagram.com/p/DJlCFbgBvbs/"},{title:"藏鏡人 4",url:"https://www.instagram.com/p/DJLMJ8cBrQh/"},{title:"藏鏡人 5",url:"https://www.instagram.com/p/DJGBI0VBDRz/"}]},{name:"形象影片",key:"brand",items:[{title:"形象影片 1",url:"https://www.instagram.com/p/DLj-XoiTlyI/"},{title:"形象影片 2",url:"https://www.instagram.com/p/DJl1UNnz3F6/"},{title:"形象影片 3",url:"https://www.instagram.com/p/DH3pfAUzqq3/"},{title:"形象影片 4",url:"https://www.instagram.com/p/DMpj7CXTFR7/"},{title:"形象影片 5",url:"https://www.instagram.com/p/DMaqy4pz8qA/"},{title:"形象影片 6",url:"https://www.instagram.com/p/DMcnM5sT-QY/"}]},{name:"證言廣告",key:"testimony",items:[{title:"證言廣告 1",url:"https://youtu.be/3Wa_3spT3aY"},{title:"證言廣告 2",url:"https://youtu.be/Tj7lKWKZj8U"},{title:"證言廣告 3",url:"https://youtu.be/fQcpSTPE4fM"},{title:"證言廣告 4",url:"https://youtu.be/vhtDZfVhafM"},{title:"證言廣告 5",url:"https://youtu.be/t9nsWWcfKWI"},{title:"證言廣告 6",url:"https://youtu.be/-VRPXP1yW7U"},{title:"證言廣告 7",url:"https://youtu.be/kp4x2ClTR90"},{title:"證言廣告 8",url:"https://youtu.be/zOPASyqrOqc"}]},{name:"節目製作",key:"shows",items:[{title:"節目製作 1",url:"https://www.youtube.com/watch?v=t0_lI52JDeI"},{title:"節目製作 2",url:"https://www.youtube.com/watch?v=jO_J0opLGcE&t=76s"},{title:"節目製作 3",url:"https://www.youtube.com/watch?v=xQEgmB6asXA&t=70s"},{title:"節目製作 4",url:"https://youtu.be/tuqjc_3dMdg"},{title:"節目製作 5",url:"https://youtu.be/7cLpRdSYzfc"},{title:"節目製作 6",url:"https://youtu.be/h1R7CxRCJRc"},{title:"節目製作 7",url:"https://youtu.be/JtdX1qPKWcA"},{title:"節目製作 8",url:"https://youtu.be/eWtQGFsnxJI"},{title:"節目製作 9",url:"https://youtu.be/JAeJV8I-fP0"},{title:"節目製作 10",url:"https://youtu.be/jUovV89BiiA"},{title:"節目製作 11",url:"https://youtu.be/wx8Y7VIKfgQ"},{title:"節目製作 12",url:"https://www.youtube.com/watch?v=GC6jZYH3njs"},{title:"節目製作 13",url:"https://www.youtube.com/watch?v=VZRkXoK_9Dc"},{title:"節目製作 14",url:"https://www.youtube.com/watch?v=1itzE92qo9I"},{title:"節目製作 15",url:"https://www.youtube.com/watch?v=nSFi6or-uQs"},{title:"節目製作 16",url:"https://www.youtube.com/watch?v=efSXeNzd7-U"}]}]};
+
+/* ===== 狀態載入 ===== */
+const injectedData=(typeof EXPORTED_SITE_DATA!=="undefined")?EXPORTED_SITE_DATA:null;
+const saved=localStorage.getItem("rq_site_data");
+let siteData=injectedData||(saved?JSON.parse(saved):defaultData);
+
+/* ===== DOM ===== */
+const grid=document.getElementById('grid'),catList=document.getElementById('catList');
+const search=document.getElementById('search'),panel=document.getElementById('panel'),btnAdmin=document.getElementById('btnAdmin'),tip=document.getElementById('tip');
+const btnToggleGroup=document.getElementById('btnToggleGroup'),btnExpandAll=document.getElementById('btnExpandAll'),btnCollapseAll=document.getElementById('btnCollapseAll');
+const podcastEmbed=document.getElementById('podcastEmbed'),videoEmbed=document.getElementById('videoEmbed');
+const btnEditPlaylist=document.getElementById('btnEditPlaylist'),btnEditVideo=document.getElementById('btnEditVideo');
+
+/* ===== 狀態 ===== */
+let isEditing=false,grouped=true; let dragCtx=null;
+
+/* ===== 渲染：分類 + 封面 ===== */
+function renderGrid(){
+  const q=search.value.trim().toLowerCase();
+  if(grouped){
+    grid.style.display='none'; catList.style.display='block'; catList.innerHTML='';
+    siteData.categories.forEach(cat=>{
+      const items=cat.items.filter(it=>(it.title+" "+it.url).toLowerCase().includes(q));
+      if(items.length===0) return;
+      const catEl=document.createElement('div'); catEl.className='cat';
+      const cover=document.createElement('div'); cover.className='cover';
+      cover.innerHTML=`<div class="cover-inner"><div class="cover-info"><h3>${cat.name}</h3><p>${coverSubtitle(cat.key)}　<span class="cat-count">共 ${items.length} 項</span></p></div><div class="cover-illu">${coverSVG(cat.key)}</div></div>`;
+      cover.onclick=()=>{ catEl.classList.toggle('open'); };
+      const head=document.createElement('div'); head.className='cat-head';
+      const title=document.createElement('div'); title.className='cat-title'; title.innerHTML=`<span class="dot"></span><span>${cat.name}</span>`;
+      const actions=document.createElement('div'); actions.className='cat-actions';
+      const tgl=document.createElement('button'); tgl.className='btn small'; tgl.textContent='展開';
+      tgl.onclick=()=>{ catEl.classList.toggle('open'); tgl.textContent=catEl.classList.contains('open')?'收合':'展開'; };
+      actions.appendChild(tgl); head.append(title,actions);
+      const body=document.createElement('div'); body.className='cat-body';
+      const inner=document.createElement('div'); inner.className='grid'; inner.dataset.cat=cat.key;
+
+      items.forEach(it=>{ const idx=cat.items.indexOf(it); inner.appendChild(buildCard(cat,idx)); });
+
+      inner.addEventListener('dragover',e=>{
+        if(!isEditing||!dragCtx) return; if(dragCtx.catKey!==cat.key) return;
+        e.preventDefault(); const targetCard=e.target.closest('.card');
+        document.querySelectorAll('.drop-target').forEach(n=>n.classList.remove('drop-target'));
+        if(targetCard) targetCard.classList.add('drop-target');
+      });
+      inner.addEventListener('dragleave',()=>{ document.querySelectorAll('.drop-target').forEach(n=>n.classList.remove('drop-target')); });
+      inner.addEventListener('drop',e=>{
+        if(!isEditing||!dragCtx) return; if(dragCtx.catKey!==cat.key) return;
+        e.preventDefault(); const targetCard=e.target.closest('.card');
+        const toIdx= targetCard ? parseInt(targetCard.dataset.idx,10) : cat.items.length-1;
+        reorderWithin(cat.key, dragCtx.fromIdx, toIdx); dragCtx=null;
+      });
+
+      body.appendChild(inner);
+      catEl.append(cover,head,body);
+      catList.appendChild(catEl);
+    });
+  }else{
+    catList.style.display='none'; grid.style.display='grid'; grid.innerHTML='';
+    siteData.categories.forEach(cat=>{
+      cat.items.forEach((it,idx)=>{
+        const text=(it.title+" "+it.url).toLowerCase();
+        if(q && !text.includes(q)) return;
+        grid.appendChild(buildCard(cat,idx,false));
+      });
+    });
+  }
+  document.body.classList.toggle('editing',isEditing);
+  btnEditPlaylist.style.display=isEditing?'inline-flex':'none';
+  btnEditVideo.style.display=isEditing?'inline-flex':'none';
+}
+
+/* ===== 卡片 ===== */
+function buildCard(cat,idx,draggable=true){
+  const it=cat.items[idx];
+  const card=document.createElement('div'); card.className='card'; card.dataset.cat=cat.key; card.dataset.idx=idx;
+  if(draggable && isEditing && grouped){
+    card.setAttribute('draggable','true');
+    card.addEventListener('dragstart',e=>{ dragCtx={catKey:cat.key,fromIdx:idx}; card.classList.add('dragging'); e.dataTransfer.setData('text/plain',JSON.stringify(dragCtx));});
+    card.addEventListener('dragend',()=>{ card.classList.remove('dragging'); document.querySelectorAll('.drop-target').forEach(n=>n.classList.remove('drop-target')); });
+  }else{ card.removeAttribute('draggable'); }
+  const btnX=document.createElement('button'); btnX.className='x'; btnX.title='刪除'; btnX.textContent='×';
+  btnX.onclick=()=>{ if(confirm('確定刪除此連結？')){ cat.items.splice(idx,1); renderGrid(); saveToLocal('已刪除'); } };
+  const btnEdit=document.createElement('button'); btnEdit.className='edit'; btnEdit.title='編輯'; btnEdit.textContent='✎';
+  btnEdit.onclick=()=> editItem(cat,idx);
+  const dragIcon=document.createElement('div'); dragIcon.className='drag-hint'; dragIcon.title='拖曳排序'; dragIcon.innerHTML='⋮⋮';
+  card.append(btnX,btnEdit,dragIcon);
+  const t=document.createElement('div'); t.className='title'; t.textContent=it.title; t.contentEditable=isEditing; t.oninput=()=>{ it.title=t.textContent; };
+  const m=document.createElement('div'); m.className='meta'; try{ m.textContent=new URL(it.url).hostname.replace('www.',''); }catch(e){ m.textContent='連結'; }
+  const row=document.createElement('div'); row.className='actions';
+  const open=document.createElement('a'); open.className='btn small open'; open.textContent='開啟連結'; open.href=it.url; open.target='_blank'; open.rel='noopener';
+  row.append(open); card.append(t,m,row); return card;
+}
+
+/* ===== 拖曳排序：同分類內重排 ===== */
+function reorderWithin(catKey,from,to){
+  if(from===to) return; const cat=siteData.categories.find(c=>c.key===catKey); if(!cat) return;
+  const list=cat.items; const item=list.splice(from,1)[0]; let toIdx=to; if(toIdx<0) toIdx=0; if(toIdx>list.length) toIdx=list.length; list.splice(toIdx,0,item);
+  saveToLocal('已重新排序'); renderGrid();
+}
+
+/* ===== 封面插圖 ===== */
+function coverSubtitle(key){switch(key){case 'podcast': return '兩人一麥・好好說話';case 'shortads': return '短影即擊中・一鏡入魂';case 'behind': return '藏鏡人・幕後紀錄';case 'brand': return '形象構築・光與影的名片';case 'testimony': return '真實口碑・說服力上線';case 'shows': return '節目企劃・內容製作';default: return '精選作品';}}
+function coverSVG(key){const stroke='#9C6B3D', orange='var(--orange)'; if(key==='podcast'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="338" fill="none"/><circle cx="180" cy="170" r="60" fill="#FFEFD9" stroke="${stroke}" stroke-width="3"/><circle cx="420" cy="170" r="60" fill="#FFEFD9" stroke="${stroke}" stroke-width="3"/><rect x="278" y="130" width="44" height="120" rx="10" fill="${orange}"/><rect x="270" y="248" width="60" height="12" rx="6" fill="#E3C7A2"/><line x1="260" y1="130" x2="340" y2="130" stroke="${stroke}" stroke-width="3"/><line x1="260" y1="250" x2="340" y2="250" stroke="${stroke}" stroke-width="3"/><circle cx="180" cy="170" r="6" fill="${stroke}"/><circle cx="420" cy="170" r="6" fill="${stroke}"/></svg>`} if(key==='shortads'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="70" width="220" height="140" rx="14" fill="#FFF" stroke="${stroke}" stroke-width="3"/><polygon points="125,125 205,170 125,215" fill="${orange}"/><rect x="360" y="90" width="150" height="190" rx="16" fill="#FFF" stroke="${stroke}" stroke-width="3"/><circle cx="435" cy="150" r="34" fill="#FFE5C2" stroke="${stroke}" stroke-width="3"/><rect x="415" y="205" width="40" height="40" rx="8" fill="${orange}"/></svg>`} if(key==='behind'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><path d="M60 170 Q300 70 540 170 Q300 270 60 170Z" fill="#FFEFD9" stroke="${stroke}" stroke-width="3"/><circle cx="300" cy="170" r="46" fill="${orange}"/><rect x="230" y="60" width="140" height="28" rx="6" fill="#FFF" stroke="${stroke}" stroke-width="3"/><rect x="230" y="92" width="140" height="18" rx="4" fill="#FFF" stroke="${stroke}" stroke-width="3"/></svg>`} if(key==='brand'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><circle cx="170" cy="170" r="70" fill="#FFF" stroke="${stroke}" stroke-width="3"/><circle cx="170" cy="170" r="30" fill="${orange}"/><circle cx="420" cy="170" r="90" fill="none" stroke="${stroke}" stroke-width="3" stroke-dasharray="6 10"/><circle cx="420" cy="170" r="30" fill="${orange}"/></svg>`} if(key==='testimony'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect x="120" y="90" width="360" height="140" rx="16" fill="#FFF" stroke="${stroke}" stroke-width="3"/><text x="150" y="160" font-size="64" fill="${orange}" font-family="serif">“ ”</text><rect x="220" y="240" width="160" height="12" rx="6" fill="#E3C7A2"/></svg>`} if(key==='shows'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect x="120" y="70" width="360" height="200" rx="14" fill="#FFF" stroke="${stroke}" stroke-width="3"/><polygon points="300,130 360,170 300,210" fill="${orange}"/><rect x="240" y="280" width="120" height="10" rx="5" fill="#E3C7A2"/></svg>`} return `<svg viewBox="0 0 600 338"></svg>`;}
+
+/* ===== 文案/連結注入、儲存、匯出 ===== */
+const editableIds=["siteTitle","heroTitle","heroLead","quickNote","igNote","fbNote"];
+const linkIds=[{id:"ctaIG",key:"igUrl"},{id:"ctaFB",key:"fbUrl"},{id:"igLink",key:"igUrl"},{id:"fbLink",key:"fbUrl"}];
+function hydrateText(){document.getElementById('siteTitle').textContent=siteData.site.title;document.getElementById('heroTitle').textContent=siteData.site.heroTitle;document.getElementById('heroLead').textContent=siteData.site.heroLead;document.getElementById('quickNote').textContent=siteData.site.notes.quick;document.getElementById('igNote').textContent=siteData.site.notes.ig;document.getElementById('fbNote').textContent=siteData.site.notes.fb;document.getElementById('footTitle').textContent=siteData.site.title;document.title=siteData.site.pageTitle||siteData.site.title;linkIds.forEach(({id,key})=>{const a=document.getElementById(id); if(a) a.href=siteData.site[key]||"#";});updateEmbeds();}
+function toast(t){tip.textContent=t;tip.style.display='block';setTimeout(()=>{tip.style.display='none'},2000);}
+function saveToLocal(msg="已儲存"){siteData.site.title=document.getElementById('siteTitle').textContent.trim();siteData.site.heroTitle=document.getElementById('heroTitle').textContent.trim();siteData.site.heroLead=document.getElementById('heroLead').textContent.trim();siteData.site.notes.quick=document.getElementById('quickNote').textContent.trim();siteData.site.notes.ig=document.getElementById('igNote').textContent.trim();siteData.site.notes.fb=document.getElementById('fbNote').textContent.trim();localStorage.setItem("rq_site_data",JSON.stringify(siteData));hydrateText();renderGrid();toast(msg);}
+function addLink(){const cats=siteData.categories.map(c=>c.name).join(" / ");const cName=prompt("新增到哪個分類？（輸入分類全名）\n"+cats); if(!cName) return; const cat=siteData.categories.find(c=>c.name===cName.trim()); if(!cat){alert("找不到此分類");return;} const url=prompt("貼上連結 URL："); if(!url) return; const title=prompt("顯示標題：","新連結"); cat.items.push({title:title||"未命名連結",url}); saveToLocal("已新增連結");}
+function exportFile(){saveToLocal("準備匯出…"); let html=document.documentElement.outerHTML; const stateScript=`<script>var EXPORTED_SITE_DATA=${JSON.stringify(siteData)};<\/script>`; html=html.replace("<!-- __STATE_INJECT__ -->",stateScript); const blob=new Blob([html],{type:"text/html;charset=utf-8"}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=(siteData.site.title||'RQ-portfolio')+".html"; a.click(); URL.revokeObjectURL(a.href); toast("已下載單檔 HTML");}
+function slugify(s){return s.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');}
+function addCategory(){const name=prompt("新分類名稱："); if(!name) return; let key=slugify(name); if(siteData.categories.some(c=>c.key===key)) key=key+(Date.now()%1000); siteData.categories.push({name,key,items:[]}); saveToLocal("已新增分類");}
+function renameCategory(){const list=siteData.categories.map(c=>c.name).join(' / '); const oldName=prompt("欲重新命名的分類（輸入全名）：\n"+list); if(!oldName) return; const cat=siteData.categories.find(c=>c.name===oldName.trim()); if(!cat){alert('找不到分類');return;} const nn=prompt("新分類名稱：",cat.name); if(!nn) return; cat.name=nn.trim(); saveToLocal("已更名");}
+function deleteCategory(){const list=siteData.categories.map(c=>c.name).join(' / '); const name=prompt("要刪除哪個分類？（輸入全名）：\n"+list); if(!name) return; const idx=siteData.categories.findIndex(c=>c.name===name.trim()); if(idx===-1){alert('找不到分類');return;} if(!confirm(`刪除分類「${name}」及其所有連結？`))return; siteData.categories.splice(idx,1); saveToLocal("已刪除分類");}
+function editItem(cat,idx){const it=cat.items[idx]; const t=prompt('修改標題：',it.title); if(t!==null) it.title=t.trim()||it.title; const u=prompt('修改 URL：',it.url); if(u!==null) it.url=u.trim()||it.url; saveToLocal('已更新卡片');}
+
+/* 播放器 */
+function ytPlaylistUrl(id){return `https://www.youtube.com/embed/videoseries?list=${encodeURIComponent(id)}&rel=0&modestbranding=1`;}
+function ytVideoUrl(id){return `https://www.youtube.com/embed/${encodeURIComponent(id)}?rel=0&modestbranding=1`;}
+function updateEmbeds(){const listId=siteData.embeds?.playlistId||defaultData.embeds.playlistId; const vidId=siteData.embeds?.featuredVideoId||defaultData.embeds.featuredVideoId; podcastEmbed.src=ytPlaylistUrl(listId); videoEmbed.src=ytVideoUrl(vidId);}
+
+/* ====== 固定帳密登入（無重設） ====== */
+const FIXED_USER="rqveryfilm";
+const FIXED_PASS_HASH="ce8c9b642485c653cc0f250141b01758c6b333ed2d1abc7230c88b458617a7db"; // cj86u4QQ
+const loginMask=document.getElementById('loginMask');
+async function sha256(t){const enc=new TextEncoder().encode(t);const buf=await crypto.subtle.digest('SHA-256',enc);return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');}
+function showLogin(){loginMask.style.display='flex';} function hideLogin(){loginMask.style.display='none';}
+document.getElementById('btnDoLogin').onclick=async()=>{const u=document.getElementById('lgUser').value.trim(); const p=document.getElementById('lgPass').value.trim(); if(u!==FIXED_USER){alert("帳號錯誤");return;} const ok=(await sha256(p))===FIXED_PASS_HASH; if(!ok){alert("密碼錯誤");return;} hideLogin(); enterEdit();};
+document.getElementById('btnCancelLogin').onclick=()=> hideLogin();
+
+/* ====== 編輯模式 ====== */
+function enterEdit(){isEditing=true; document.querySelector('.admin-fab').style.display='block'; document.getElementById('btnAdmin').style.display='inline-flex'; panel.classList.add('show'); btnAdmin.textContent="管理中"; editableIds.forEach(id=>{const el=document.getElementById(id); el.setAttribute('contenteditable','true'); el.classList.add('admin');}); renderGrid(); toast("已進入管理模式（Shift+M / 長按或連點 LOGO）");}
+function exitEdit(){isEditing=false; panel.classList.remove('show'); btnAdmin.textContent="管理"; editableIds.forEach(id=>{const el=document.getElementById(id); el.removeAttribute('contenteditable'); el.classList.remove('admin');}); renderGrid();}
+document.getElementById('btnExit').onclick=()=> exitEdit();
+document.getElementById('btnLogout').onclick=()=>{ exitEdit(); document.querySelector('.admin-fab').style.display='none'; document.getElementById('btnAdmin').style.display='none'; toast("已登出");};
+
+/* 管理鈕（登入後可用來切換面板） */
+document.getElementById('btnAdmin').onclick=()=>{ if(isEditing){ panel.classList.toggle('show'); } else { showLogin(); } };
+
+/* ====== 熱鍵：Shift + M ====== */
+document.addEventListener('keydown',(e)=>{ if(e.shiftKey && (e.key==='M' || e.key==='m')){ if(isEditing){ panel.classList.toggle('show'); } else { showLogin(); } }});
+
+/* ====== 手機 & 隱藏入口：長按 / 三連點 Logo + ?admin=rq ====== */
+(function setupHiddenAdminEntrances(){ const logo = document.querySelector('.logo'); const qs = new URLSearchParams(location.search); const ADMIN_KEY = "rq"; if (qs.get('admin') === ADMIN_KEY) showLogin(); let lpTimer=null,touching=false; const startLP=()=>{touching=true;lpTimer=setTimeout(()=>{if(touching) showLogin();},1200);}; const cancelLP=()=>{touching=false;clearTimeout(lpTimer);}; logo.addEventListener('touchstart',startLP,{passive:true}); logo.addEventListener('touchend',cancelLP,{passive:true}); logo.addEventListener('touchmove',cancelLP,{passive:true}); logo.addEventListener('mousedown',startLP); logo.addEventListener('mouseup',cancelLP); logo.addEventListener('mouseleave',cancelLP); let taps=0,firstTapAt=0; logo.addEventListener('click',()=>{ const now=Date.now(); if(now-firstTapAt>1500){taps=0;firstTapAt=now;} taps++; if(taps===1) firstTapAt=now; if(taps>=3){taps=0;showLogin();} });})();
+
+/* 事件：一般操作 */
+document.getElementById('btnSave').onclick=()=> saveToLocal();
+document.getElementById('btnReset').onclick=()=>{ if(confirm("確定清除瀏覽器中的暫存？（不影響原檔）")){localStorage.removeItem("rq_site_data"); siteData=injectedData||defaultData; hydrateText(); renderGrid(); toast("已清除儲存");}};
+document.getElementById('btnExport').onclick=()=> exportFile();
+document.getElementById('btnAdd').onclick=()=> addLink();
+document.getElementById('btnSettings').onclick=()=> openSettings();
+document.getElementById('btnAddCat').onclick=()=> addCategory();
+document.getElementById('btnRenameCat').onclick=()=> renameCategory();
+document.getElementById('btnDeleteCat').onclick=()=> deleteCategory();
+search.addEventListener('input',()=> renderGrid());
+btnToggleGroup.addEventListener('click',()=>{grouped=!grouped;btnToggleGroup.textContent=grouped?'分類清單':'卡片總覽';renderGrid();});
+btnExpandAll.addEventListener('click',()=>{document.querySelectorAll('.cat').forEach(c=>c.classList.add('open'));});
+btnCollapseAll.addEventListener('click',()=>{document.querySelectorAll('.cat').forEach(c=>c.classList.remove('open'));});
+
+/* 設定 */
+function openSettings(){const s=siteData.site; const t=prompt("網站顯示名稱（頁面 H1）：",s.title||''); if(t!==null) s.title=t.trim()||s.title; const pt=prompt("瀏覽器分頁標題（<title>）：",s.pageTitle||document.title); if(pt!==null) s.pageTitle=pt.trim()||s.pageTitle; const d=prompt("SEO 描述（meta description）：",s.description||''); if(d!==null) s.description=d.trim(); const og=prompt("OG 圖片網址（分享縮圖）：",s.ogImage||''); if(og!==null) s.ogImage=og.trim(); const ig=prompt("Instagram 連結：",s.igUrl||''); if(ig!==null) s.igUrl=ig.trim(); const fb=prompt("Facebook 連結：",s.fbUrl||''); if(fb!==null) s.fbUrl=fb.trim(); saveToLocal("已更新站點設定");}
+
+/* Init */
+function init(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear(); hydrateText(); renderGrid(); updateEmbeds();}
+init();
+</script>
+</body>
+</html>
