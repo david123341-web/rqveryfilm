@@ -1,0 +1,553 @@
+<html lang="zh-Hant-TW"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RQ娛樂影像工作室｜作品集</title>
+<meta name="description" content="RQ娛樂影像工作室｜日系清爽的影像敘事：Podcast、短影片廣告、形象影片、證言廣告、節目製作。">
+<meta name="theme-color" content="#FF8A00">
+
+<!-- 🔥 Anti-cache：讓手機/桌機永遠抓最新版 -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<script>
+  // 每次載入都在網址後加上時間戳，保證抓到最新版本
+  (function() {
+    const url = new URL(window.location.href);
+    const cacheBuster = 'v=' + new Date().getTime();
+    if (!url.search.includes('v=')) {
+      url.search += (url.search ? '&' : '?') + cacheBuster;
+      window.location.replace(url.toString());
+    }
+  })();
+</script>
+<!-- 🔥 End Anti-cache -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600&amp;family=Noto+Serif+TC:wght@500;700&amp;display=swap" rel="stylesheet">
+<style>
+:root{--orange:#FF8A00;--ink:#363636;--powder:#FFF2DF;--ink-60:rgba(54,54,54,.6);--ink-30:rgba(54,54,54,.3);--radius:14px;--shadow:0 10px 25px rgba(0,0,0,.08);--maxw:1120px;}
+*{box-sizing:border-box} html,body{margin:0;background:var(--powder);color:var(--ink);-webkit-font-smoothing:antialiased}
+body{font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.6}
+h1,h2,h3{font-family:"Noto Serif TC",serif;margin:0 0 .4em}
+a{color:var(--ink);text-decoration:none} a:hover{color:var(--orange)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:24px;position:relative}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(255,242,223,.75);backdrop-filter:saturate(180%) blur(16px);border-bottom:1px dashed var(--ink-30)}
+.nav{display:flex;align-items:center;gap:16px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:36px;height:36px;border-radius:9px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-family:"Noto Serif TC",serif;font-weight:700;font-size:20px;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55);cursor:pointer;}
+.brand h1{font-size:18px;letter-spacing:.5px}
+.menu{display:flex;gap:14px;font-size:14px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid var(--ink-30);background:#fff;box-shadow:0 2px 0 rgba(0,0,0,.04);cursor:pointer;user-select:none}
+.btn.primary{border-color:transparent;background:var(--orange);color:#fff}
+.btn.small{padding:8px 12px;font-size:13px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:36px 0}
+.lead{color:var(--ink-60)}
+.cta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+
+/* sections / bars */
+section{margin:20px 0 36px}
+.sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.sec-title{display:flex;align-items:center;gap:10px}
+.sec-title .dot{width:10px;height:10px;border-radius:50%;background:var(--orange)}
+.bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:10px 0 18px}
+.search{flex:1;min-width:220px;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--ink-30);border-radius:999px;padding:8px 12px}
+.search input{flex:1;border:none;outline:none;background:transparent;font-size:14px}
+.bar .right-actions{display:flex;gap:8px;align-items:center}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--ink-30);border-radius:var(--radius);padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow);position:relative}
+.card .title{font-weight:600}
+.card .meta{font-size:12px;color:var(--ink-60)}
+.card .actions{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap;justify-content:flex-end}
+.open{margin-left:auto}
+
+/* 管理按鈕（上/下移改為拖曳） */
+.card .x,.card .edit{display:none;position:absolute;top:8px;background:#000;color:#fff;border:none;border-radius:999px;width:26px;height:26px;cursor:pointer;align-items:center;justify-content:center;line-height:1}
+.card .x{right:8px}.card .edit{right:40px}
+.editing .card .x,.editing .card .edit{display:flex}
+
+/* 拖曳提示 */
+.drag-hint{display:none;position:absolute;left:10px;top:10px;width:22px;height:22px;border-radius:999px;background:#f2f2f2;border:1px solid #ddd;align-items:center;justify-content:center;font-size:14px;line-height:1;cursor:grab}
+.editing .drag-hint{display:flex}
+.card[draggable="true"]{cursor:grab}
+.card.dragging{opacity:.7}
+.card.drop-target{outline:2px dashed var(--orange);outline-offset:2px}
+
+/* embeds */
+.embeds{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:980px){.embeds{grid-template-columns:1fr}}
+.embed-card{background:#fff;border:1px solid var(--ink-30);border-radius:var(--radius);padding:12px;box-shadow:var(--shadow)}
+.embed-head{display:flex;align-items:center;justify-content:space-between;margin:0 0 8px}
+.embed-title{font-size:16px;font-weight:600}
+.embed-btn{font-size:12px;border:1px solid var(--ink-30);border-radius:999px;background:#fff;padding:6px 10px;cursor:pointer}
+.embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000}
+.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* contact */
+.contact-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:560px){.contact-cards{grid-template-columns:1fr}}
+.contact-card{background:#fff;border:1px dashed var(--ink-30);border-radius:var(--radius);padding:16px}
+footer{padding:20px 0;color:var(--ink-60);font-size:12px}
+
+/* admin（預設隱藏；提高層級避免被擋） */
+.admin-fab{position:fixed;right:18px;bottom:18px;z-index:9999;display:none}
+.fab{border-radius:999px;border:1px solid var(--ink-30);background:#fff;padding:12px 14px;box-shadow:var(--shadow);cursor:pointer}
+.panel{position:fixed;right:18px;bottom:74px;background:#fff;border:1px solid var(--ink-30);border-radius:12px;box-shadow:var(--shadow);padding:12px;display:none;flex-direction:column;gap:8px;min-width:290px;z-index:10000}
+.panel.show{display:flex}
+.admin-tip{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;background:#000;color:#fff;font-size:12px;padding:8px 10px;border-radius:8px;opacity:.85;display:none}
+
+/* accordion categories */
+.cat{border:1px solid var(--ink-30);border-radius:14px;background:#fff;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.cat-head{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 14px}
+.cat-title{display:flex;align-items:center;gap:10px;font-weight:700}
+.cat-count{font-size:12px;color:var(--ink-60)}
+.cat-actions{display:flex;gap:8px}
+.cat-body{display:none;padding:12px;border-top:1px dashed var(--ink-30)}
+.cat.open .cat-body{display:block}
+
+/* covers */
+.cover{grid-column:1/-1;background:#FFF7EB;border:1px dashed var(--ink-30);border-radius:12px;padding:0;overflow:hidden}
+.cover-inner{display:grid;grid-template-columns:1fr 1.3fr;align-items:center}
+.cover-info{padding:16px}
+.cover-info h3{margin:0 0 4px;font-size:20px}
+.cover-info p{margin:0;color:var(--ink-60);font-size:13px}
+.cover-illu{position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#FFE5C2,#FFF7EB)}
+.cover-illu svg{position:absolute;inset:0;width:100%;height:100%}
+.cover:hover{box-shadow:0 12px 28px rgba(0,0,0,.08)}
+
+/* login */
+.login-mask{position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;z-index:11000}
+.login-card{width:min(420px,92vw);background:#fff;border:1px solid var(--ink-30);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+.login-card h3{margin:0 0 6px;font-size:18px}
+.field{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.field label{font-size:12px;color:var(--ink-60)}
+.field input{border:1px solid var(--ink-30);border-radius:10px;padding:10px 12px;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}
+</style>
+<style>.ssBtnDefault{position:absolute;z-index:100000000;background:none;border:none;outline:none;right:0;cursor:pointer;width:26px;height:26px;margin:0;padding:0;top:8px;right:8px;opacity:.6;pointer-events:all;transition-duration:.25s}.ssBtnDefault:hover{opacity:1 !important;transition-duration:.25s}.ssBtnDefault .fade{transition-duration:5s;opacity:0}.ssBtnYouTube{background:none;border:none;margin-right:20px !important;padding-top:0px !important;width:25px !important}.ytp-embed .ssBtnYouTube{width:20px !important;margin-right:15px !important}.ssBtnVimeo{height:2rem !important;width:2rem !important;margin-top:8px !important}.ssBtnVimeo button{width:100% !important;height:100% !important}.ssBtnVimeo button svg{width:19px}.ssBtnNetflix{background:none;border:none;cursor:pointer;width:4rem;margin:0 .5rem;display:inline-block;flex-shrink:0}.ssBtnNetflix>svg{transform:translateY(-0.5rem)}.ssBtnNetflix:hover{transform:scale(1.2);transition-duration:.25s}.ssBtnHulu{width:27px;margin-top:4px;margin-right:10px;opacity:.7;cursor:pointer}.ssBtnHulu:hover{opacity:1}.ssBtnAmazon{margin-left:1.5vw;outline:none;cursor:pointer;opacity:.8}.ssBtnAmazon:hover{opacity:1}@media(min-width: 1200px){.ssBtnAmazon{width:1.6666666667vw;height:1.6666666667vw}}@media(max-width: 1199px){.ssBtnAmazon{width:20px;height:20px}}.ssBtnMax{width:24px;height:24px;margin:4px;padding:12px;box-sizing:content-box;position:relative;opacity:.7;cursor:pointer;display:flex;justify-content:center;align-items:center}.ssBtnMax:hover{opacity:1;transform:scale(1.2)}.ssBtnMax svg{width:24px;height:24px}.ssBtnDisney{opacity:.7}.ssBtnDisney:hover{opacity:1}.ssBtnDisney svg{width:25px !important;height:31px !important;padding-top:4px;margin-right:7px}.ssBtnApple{cursor:pointer;opacity:.7}.ssBtnApple:hover{opacity:1}.ssBtnApple svg{width:22px !important;height:22px !important;margin-right:2px !important}body .vsNotification{display:flex;width:100%;height:4rem;justify-content:center;align-items:center;position:fixed;z-index:1000000000;top:-4rem;padding:.75rem 1.25em;border:1px solid rgba(0,0,0,0);border-radius:.25em;font-size:12px;height:fit-content;justify-self:center;width:auto;animation-name:notification;animation-iteration-count:1;animation-duration:2s}@keyframes notification{0%{top:-4rem}25%{top:3rem}85%{top:3rem}100%{top:-4rem}}body .vsNotification.persist{top:3rem;animation-name:notification-persist;animation-iteration-count:1;animation-duration:1s}@keyframes notification-persist{0%{top:-4rem}100%{top:3rem}}body .vsNotification.success{background-color:#d4edda;border-color:#c3e6cb;color:#155724}body .vsNotification.fail{background-color:#edd4d4;border-color:#e6c3c3;color:#b62424}body .vsNotification .vsNotificationClose{color:#b62424;border:none;background-color:rgba(0,0,0,0);padding:0;line-height:0;position:relative;left:.5rem;cursor:pointer}body .vsNotification .vsNContent{position:absolute;z-index:1000000000;margin-bottom:1em;padding:.75rem 1.25em;border:1px solid rgba(0,0,0,0);border-radius:.25em;font-size:12px;height:fit-content;top:0}body .vsNotification a{color:#b62424}.ssModal{display:none;position:fixed;z-index:100000000;right:20px;opacity:0;background-color:#fffefa;border-radius:3px;padding:25px;color:#525252;font-family:muli,sans-serif;box-shadow:0px 4px 8px 0px rgba(0,0,0,.15);animation-name:animateOn;animation-duration:.2s;animation-fill-mode:forwards}.ssModal.visible{display:block}.ssModal *{vertical-align:middle;line-height:normal;font-weight:normal}@keyframes animateOn{from{opacity:0;top:0px}to{opacity:1;top:20px}}.ssModal .close{position:absolute;right:10px;top:10px;cursor:pointer;opacity:.5;background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI3LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA0NDMuNCA0NDMuNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDQzLjQgNDQzLjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHBhdGggZD0iTTYuOCw0MDMuNWwxODEuOC0xODEuOEw2LjgsMzkuOWMtNS45LTUuOS04LjItMTQuNS02LTIyLjZDMyw5LjIsOS4yLDMsMTcuMywwLjhjOC4xLTIuMiwxNi43LDAuMSwyMi42LDZsMTgxLjgsMTgxLjgKCUw0MDMuNSw2LjhjNS45LTUuOSwxNC41LTguMiwyMi42LTZjOC4xLDIuMiwxNC40LDguNCwxNi41LDE2LjVjMi4yLDguMS0wLjEsMTYuNy02LDIyLjZMMjU0LjcsMjIxLjdsMTgxLjgsMTgxLjgKCWM1LjksNS45LDguMiwxNC41LDYsMjIuNmMtMi4yLDguMS04LjQsMTQuNC0xNi41LDE2LjVjLTguMSwyLjItMTYuNy0wLjEtMjIuNi02TDIyMS43LDI1NC43TDM5LjksNDM2LjVjLTUuOSw1LjktMTQuNSw4LjItMjIuNiw2CglDOS4yLDQ0MC40LDMsNDM0LjEsMC44LDQyNkMtMS40LDQxOCwwLjksNDA5LjQsNi44LDQwMy41TDYuOCw0MDMuNXoiLz4KPC9zdmc+Cg==);width:10px;height:10px}.ssModal .ssButtons{margin-top:25px;text-align:right}.ssModal .ssButtons .ssButton,.ssModal .ssButtons a .ssButton{display:inline-block;height:20px;padding:3px 12px 3px;margin-left:14px;border-radius:4px;box-shadow:0px 4px 8px 0px rgba(0,0,0,.15);background-color:#fff;font-size:12px;color:#525252;line-height:20px;font-weight:normal;cursor:pointer;text-decoration:none}.ssModal .ssButtons .ssButton .emoji,.ssModal .ssButtons a .ssButton .emoji{font-size:15px;vertical-align:bottom}.ssModal .ssButtons .ssButton.blue,.ssModal .ssButtons a .ssButton.blue{background-color:#19acef;color:#fff}.ssModal .icon{background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjIuMywgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIKCSBpZD0iTGF5ZXJfMSIgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczppbmtzY2FwZT0iaHR0cDovL3d3dy5pbmtzY2FwZS5vcmcvbmFtZXNwYWNlcy9pbmtzY2FwZSIgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIiB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCgkgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAxMDAgODMuOSIKCSBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMDAgODMuOTsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiMwMEFERUY7fQo8L3N0eWxlPgo8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLC05NTIuMzYyMTgpIj4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zNS42LDk1Mi40Yy0xLjMsMC0yLjQsMS0yLjksMS44bC01LjYsMTEuMUgxMWMtNiwwLTExLDUtMTEsMTF2NDljMCw2LDUsMTEsMTEsMTFoNzhjNiwwLDExLTUsMTEtMTF2LTQ5CgkJYzAtNi01LTExLTExLTExSDcyLjlsLTUuNi0xMS4xYy0wLjUtMS4xLTEuNi0xLjgtMi45LTEuOEwzNS42LDk1Mi40TDM1LjYsOTUyLjR6IE0zNy42LDk1OC44aDI1LjJsNS41LDExLjEKCQljMC41LDEuMSwxLjYsMS44LDIuOSwxLjhoMTguMWMyLjYsMCw0LjUsMS45LDQuNSw0LjV2NDljMCwyLjYtMS45LDQuNS00LjUsNC41SDExLjFjLTIuNiwwLTQuNS0xLjktNC41LTQuNXYtNDkKCQljMC0yLjYsMS45LTQuNSw0LjUtNC41aDE4LjFjMS4xLDAsMi40LTAuOCwyLjktMS44TDM3LjYsOTU4Ljh6IE01MC4yLDk3OS44Yy0xMS42LDAtMjEsOS40LTIxLDIxczkuNCwyMSwyMSwyMXMyMS05LjQsMjEtMjEKCQlTNjEuOCw5NzkuOCw1MC4yLDk3OS44eiBNNTAuMiw5ODYuMmM4LjEsMCwxNC41LDYuNSwxNC41LDE0LjVzLTYuNSwxNC41LTE0LjUsMTQuNXMtMTQuNS02LjUtMTQuNS0xNC41UzQyLjEsOTg2LjIsNTAuMiw5ODYuMnoiLz4KPC9nPgo8L3N2Zz4K);background-repeat:no-repeat;width:30px;height:30px;vertical-align:top;margin-right:22px;margin-top:2px;display:inline-block}.ssModal .body{display:inline-block;width:315px}.ssModal .body .title{font-size:15px;font-weight:600;margin-bottom:7px}.ssModal .body .description{font-size:13px;font-weight:lighter}body #ssTempHolder{position:fixed;z-index:1000000000000;width:100%;height:100%;top:0;pointer-events:none}body #ssTempHolder video{width:auto !important;height:auto !important;max-width:100% !important;max-height:100% !important;top:0 !important;left:0 !important;transform:none !important}body.ssTakeScreenshot .ssElement{z-index:100000000000 !important}body.ssTakeScreenshot.ssNetflix [data-uia=video-canvas]{z-index:10000000}body.ssTakeScreenshot.ssNetflix video{background-color:#000}body.ssTakeScreenshot.ssNetflix .player-timedtext{display:none !important}body.ssTakeScreenshot.ssNetflix.showSubs .player-timedtext{display:block !important}body.ssTakeScreenshot.ssAmazon .dv-player-fullscreen video{z-index:99999999 !important}body.ssTakeScreenshot.ssDisney .btm-media-overlays-container{display:none}body.ssTakeScreenshot.ssDisney .TimedTextOverlay{display:none}body.ssTakeScreenshot.ssDisney.showSubs .TimedTextOverlay{display:block}body.ssTakeScreenshot.ssHulu .ContentPlayer__contentArea{z-index:10000000000;position:relative}body.ssTakeScreenshot.ssHulu .ClosedCaption{display:none}body.ssTakeScreenshot.ssHulu.showSubs .ClosedCaption{display:block}body.ssTakeScreenshot.ssMax video{z-index:99999999;position:relative}body.ssTakeScreenshot.ssYoutube .html5-video-container,body.ssTakeScreenshot.ssYoutube .ytp-caption-window-container{z-index:999999999 !important}body.ssTakeScreenshot.ssApple #apple-music-video-player{z-index:999999999 !important}body.ssTakeScreenshot.ssApple .video-player-scrim{display:none}body .ssWrapper{overflow:hidden}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3Njc3MvU2NyZWVuc2hvdENvbnRyb2wvX2J1dHRvbnMuc2NzcyIsIndlYnBhY2s6Ly8uL3Njc3MvU2NyZWVuc2hvdENvbnRyb2wvX25vdGlmaWNhdGlvbnMuc2NzcyIsIndlYnBhY2s6Ly8uL3Njc3MvU2NyZWVuc2hvdENvbnRyb2wvX21vZGFsLnNjc3MiLCJ3ZWJwYWNrOi8vLi9zY3NzL1NjcmVlbnNob3RDb250cm9sLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsY0FFQyxpQkFBQSxDQUNBLGlCQUFBLENBQ0EsZUFBQSxDQUNBLFdBQUEsQ0FDQSxZQUFBLENBQ0EsT0FBQSxDQUNBLGNBQUEsQ0FFQSxVQUFBLENBQ0EsV0FBQSxDQUNBLFFBQUEsQ0FDQSxTQUFBLENBQ0EsT0FBQSxDQUNBLFNBQUEsQ0FFQSxVQUFBLENBQ0Esa0JBQUEsQ0FFRyx3QkFBQSxDQUVBLG9CQUNJLG9CQUFBLENBQ0Esd0JBQUEsQ0FHSixvQkFDSSxzQkFBQSxDQUNBLFNBQUEsQ0FRUixjQUVDLGVBQUEsQ0FDQSxXQUFBLENBRUEsNEJBQUEsQ0FDRywwQkFBQSxDQUNBLHFCQUFBLENBRUgseUJBQ0MscUJBQUEsQ0FDQSw0QkFBQSxDQUlGLFlBRUMsc0JBQUEsQ0FDRyxxQkFBQSxDQUVBLHlCQUFBLENBRUgsbUJBRUMscUJBQUEsQ0FDQSxzQkFBQSxDQUVBLHVCQUNDLFVBQUEsQ0FNSCxjQUNDLGVBQUEsQ0FDQSxXQUFBLENBQ0EsY0FBQSxDQUVBLFVBQUEsQ0FFQSxjQUFBLENBR0Esb0JBQUEsQ0FDQSxhQUFBLENBVUEsa0JBRUMsNkJBQUEsQ0FJRSxvQkFDSSxvQkFBQSxDQUNILHdCQUFBLENBSUwsV0FFQyxVQUFBLENBQ0EsY0FBQSxDQUNBLGlCQUFBLENBQ0EsVUFBQSxDQUNBLGNBQUEsQ0FFQSxpQkFDQyxTQUFBLENBSUYsYUFDQyxpQkFBQSxDQUVBLFlBQUEsQ0FFRyxjQUFBLENBQ0EsVUFBQSxDQUlBLG1CQUNJLFNBQUEsQ0FJUiwwQkFBQSxhQUFBLG9CQUFBLENBQUEscUJBQUEsQ0FBQSxDQUNBLDBCQUFBLGFBQUEsVUFBQSxDQUFBLFdBQUEsQ0FBQSxDQUdBLFVBRUksVUFBQSxDQUNBLFdBQUEsQ0FDSCxVQUFBLENBQ0EsWUFBQSxDQUNBLHNCQUFBLENBRUcsaUJBQUEsQ0FDQSxVQUFBLENBQ0EsY0FBQSxDQUNBLFlBQUEsQ0FDQSxzQkFBQSxDQUNBLGtCQUFBLENBRUgsZ0JBQ0MsU0FBQSxDQUNBLG9CQUFBLENBR0QsY0FDQyxVQUFBLENBQ0EsV0FBQSxDQUlGLGFBR0ksVUFBQSxDQUVILG1CQUNDLFNBQUEsQ0FHRCxpQkFDQyxxQkFBQSxDQUNBLHNCQUFBLENBQ0EsZUFBQSxDQUNBLGdCQUFBLENBSUYsWUFJQyxjQUFBLENBR0csVUFBQSxDQUVILGtCQUNDLFNBQUEsQ0FHRCxnQkFDQyxxQkFBQSxDQUNBLHNCQUFBLENBQ0EsMkJBQUEsQ0NuTUYscUJBRUksWUFBQSxDQUNBLFVBQUEsQ0FDQSxXQUFBLENBQ0Esc0JBQUEsQ0FDQSxrQkFBQSxDQUNBLGNBQUEsQ0FDQSxrQkFBQSxDQUNBLFNBQUEsQ0FFQSxxQkFBQSxDQUNBLDhCQUFBLENBQ0EsbUJBQUEsQ0FDQSxjQUFBLENBQ0Esa0JBQUEsQ0FDQSxtQkFBQSxDQUNBLFVBQUEsQ0FFQSwyQkFBQSxDQUNBLDJCQUFBLENBQ0EscUJBQUEsQ0FFQSx3QkFDSSxHQUFBLFNBQUEsQ0FDQSxJQUFBLFFBQUEsQ0FDQSxJQUFBLFFBQUEsQ0FDQSxLQUFBLFNBQUEsQ0FBQSxDQUdKLDZCQUdJLFFBQUEsQ0FFQSxtQ0FBQSxDQUNBLDJCQUFBLENBQ0EscUJBQUEsQ0FFQSxnQ0FDSSxHQUFBLFNBQUEsQ0FDQSxLQUFBLFFBQUEsQ0FBQSxDQUtSLDZCQUNJLHdCQUFBLENBQ0Esb0JBQUEsQ0FDQSxhQUFBLENBR0osMEJBQ0ksd0JBQUEsQ0FDQSxvQkFBQSxDQUNBLGFBQUEsQ0FHSiwwQ0FDSSxhQUFBLENBQ0EsV0FBQSxDQUNBLDhCQUFBLENBQ0EsU0FBQSxDQUNBLGFBQUEsQ0FDQSxpQkFBQSxDQUNBLFVBQUEsQ0FDQSxjQUFBLENBR0osaUNBRUksaUJBQUEsQ0FDQSxrQkFBQSxDQUNBLGlCQUFBLENBQ0EscUJBQUEsQ0FDQSw4QkFBQSxDQUNBLG1CQUFBLENBQ0EsY0FBQSxDQUNBLGtCQUFBLENBQ0EsS0FBQSxDQUdKLHVCQUNJLGFBQUEsQ0NuRlIsU0FFSSxZQUFBLENBTUEsY0FBQSxDQUNBLGlCQUFBLENBRUEsVUFBQSxDQUVBLFNBQUEsQ0FFQSx3QkFBQSxDQUNBLGlCQUFBLENBRUEsWUFBQSxDQUVBLGFBQUEsQ0FDQSwyQkFBQSxDQUVBLDBDQUFBLENBRUEsd0JBQUEsQ0FDQSxzQkFBQSxDQUNBLDRCQUFBLENBdkJBLGlCQUNJLGFBQUEsQ0F3QkosV0FDSSxxQkFBQSxDQUNBLGtCQUFBLENBQ0Esa0JBQUEsQ0FHSixxQkFDSSxLQUNJLFNBQUEsQ0FDQSxPQUFBLENBRUosR0FDSSxTQUFBLENBQ0EsUUFBQSxDQUFBLENBSVIsZ0JBQ0ksaUJBQUEsQ0FDQSxVQUFBLENBQ0EsUUFBQSxDQUNBLGNBQUEsQ0FDQSxVQUFBLENBRUEsd0RBQUEsQ0FFQSxVQUFBLENBQ0EsV0FBQSxDQUlKLG9CQUVJLGVBQUEsQ0FDQSxnQkFBQSxDQUVBLDhEQUNJLG9CQUFBLENBRUEsV0FBQSxDQUVBLG9CQUFBLENBQ0EsZ0JBQUEsQ0FFQSxpQkFBQSxDQUNBLDBDQUFBLENBQ0EscUJBQUEsQ0FFQSxjQUFBLENBQ0EsYUFBQSxDQUNBLGdCQUFBLENBQ0Esa0JBQUEsQ0FFQSxjQUFBLENBRUEsb0JBQUEsQ0FFQSw0RUFDSSxjQUFBLENBQ0EscUJBQUEsQ0FHSix3RUFDSSx3QkFBQSxDQUNBLFVBQUEsQ0FLWixlQUNJLHdEQUFBLENBQ0EsMkJBQUEsQ0FFQSxVQUFBLENBQ0EsV0FBQSxDQUVBLGtCQUFBLENBQ0EsaUJBQUEsQ0FDQSxjQUFBLENBRUEsb0JBQUEsQ0FHSixlQUVJLG9CQUFBLENBQ0EsV0FBQSxDQUVBLHNCQUNJLGNBQUEsQ0FDQSxlQUFBLENBQ0EsaUJBQUEsQ0FFSiw0QkFDSSxjQUFBLENBQ0EsbUJBQUEsQ0NySFgsbUJBQ0MsY0FBQSxDQUNBLHFCQUFBLENBQ0EsVUFBQSxDQUNBLFdBQUEsQ0FDQSxLQUFBLENBQ0EsbUJBQUEsQ0FFQSx5QkFDQyxxQkFBQSxDQUNBLHNCQUFBLENBQ0EseUJBQUEsQ0FDQSwwQkFBQSxDQUNBLGdCQUFBLENBQ0EsaUJBQUEsQ0FDQSx5QkFBQSxDQU1ELGlDQUNDLCtCQUFBLENBS0Esd0RBQ0MsZ0JBQUEsQ0FHRCxzQ0FDQyxxQkFBQSxDQUlELGtEQUVDLHVCQUFBLENBS0EsMkRBRUMsd0JBQUEsQ0FRRiwyREFDQywyQkFBQSxDQU1ELDZEQUNDLFlBQUEsQ0FHRCxpREFDQyxZQUFBLENBS0EsMERBQ0MsYUFBQSxDQU1GLHlEQUNDLG1CQUFBLENBQ0csaUJBQUEsQ0FHSiw0Q0FDQyxZQUFBLENBSUEscURBQ0MsYUFBQSxDQU9GLGtDQUNDLGdCQUFBLENBQ0EsaUJBQUEsQ0FjRCxxSEFDQyw0QkFBQSxDQUtELHdEQUNDLDRCQUFBLENBR0Qsa0RBQ0MsWUFBQSxDQUtILGdCQUNDLGVBQUEiLCJzb3VyY2VzQ29udGVudCI6WyIuc3NCdG5EZWZhdWx0IHtcblx0XG5cdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0ei1pbmRleDogMTAwMDAwMDAwO1xuXHRiYWNrZ3JvdW5kOm5vbmU7XG5cdGJvcmRlcjogbm9uZTtcblx0b3V0bGluZTogbm9uZTtcblx0cmlnaHQ6MDtcblx0Y3Vyc29yOiBwb2ludGVyO1xuXHRcblx0d2lkdGg6IDI2cHg7XG5cdGhlaWdodDogMjZweDtcblx0bWFyZ2luOiAwOy8vNSUgOHB4IDA7XG5cdHBhZGRpbmc6MDtcblx0dG9wOjhweDtcblx0cmlnaHQ6OHB4O1xuXHRcblx0b3BhY2l0eTogLjY7XG5cdHBvaW50ZXItZXZlbnRzOiBhbGw7XG5cdC8qdHJhbnNpdGlvbi1maWxsLW1vZGU6IGZvcndhcmRzOyovXG4gICAgdHJhbnNpdGlvbi1kdXJhdGlvbjogLjI1cztcblxuICAgICY6aG92ZXIge1xuICAgICAgICBvcGFjaXR5OiAxICFpbXBvcnRhbnQ7IFxuICAgICAgICB0cmFuc2l0aW9uLWR1cmF0aW9uOiAuMjVzO1xuICAgIH1cblxuICAgIC5mYWRlIHtcbiAgICAgICAgdHJhbnNpdGlvbi1kdXJhdGlvbjogNXM7XG4gICAgICAgIG9wYWNpdHk6IDA7XG4gICAgfVxuICAgIFxuICAgIC8qc3ZnIHtcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjpyZWQ7XG4gICAgfSovXG59XG5cbi5zc0J0bllvdVR1YmUge1xuXG5cdGJhY2tncm91bmQ6bm9uZTtcblx0Ym9yZGVyOiBub25lO1xuXHRcblx0bWFyZ2luLXJpZ2h0OiAyMHB4ICFpbXBvcnRhbnQ7XG4gICAgcGFkZGluZy10b3A6IDBweCAhaW1wb3J0YW50O1xuICAgIHdpZHRoOiAyNXB4ICFpbXBvcnRhbnQ7XG5cblx0Lnl0cC1lbWJlZCAmIHtcblx0XHR3aWR0aDogMjBweCAhaW1wb3J0YW50O1xuXHRcdG1hcmdpbi1yaWdodDogMTVweCAhaW1wb3J0YW50O1xuXHR9XG59XG5cbi5zc0J0blZpbWVvIHtcblxuXHRoZWlnaHQ6IDJyZW0gIWltcG9ydGFudDtcbiAgICB3aWR0aDogMnJlbSAhaW1wb3J0YW50O1xuICAgIC8vcGFkZGluZzogNnB4ICFpbXBvcnRhbnQ7XG4gICAgbWFyZ2luLXRvcDogOHB4ICFpbXBvcnRhbnQ7XG5cblx0YnV0dG9uIHtcblxuXHRcdHdpZHRoOiAxMDAlICFpbXBvcnRhbnQ7XG5cdFx0aGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XG5cdFx0XG5cdFx0c3ZnIHtcblx0XHRcdHdpZHRoOiAxOXB4O1xuXHRcdH1cblx0fVxuXG59XG5cbi5zc0J0bk5ldGZsaXgge1xuXHRiYWNrZ3JvdW5kOm5vbmU7XG5cdGJvcmRlcjogbm9uZTtcblx0Y3Vyc29yOiBwb2ludGVyO1xuXG5cdHdpZHRoOjRyZW07XG5cdFxuXHRtYXJnaW46IDAgMC41cmVtO1xuXHQvL21hcmdpbjogMCAycmVtIDAgNHJlbTtcblxuXHRkaXNwbGF5OmlubGluZS1ibG9jaztcblx0ZmxleC1zaHJpbms6IDA7XG5cdFxuXHQvL21hcmdpbi10b3A6LTFyZW07XG5cdC8vaGVpZ2h0OjIuNHJlbTtcblx0Ly93aWR0aDogNTBweDtcblx0Ly9oZWlnaHQ6IDM1cHggIWltcG9ydGFudDtcblx0Ly93aWR0aDogMTAwJTsvLzMuNmVtICFpbXBvcnRhbnQ7XG4gICAgLy9oZWlnaHQ6IDEwMCU7Ly8xLjZlbSAhaW1wb3J0YW50O1xuXHQvL3BhZGRpbmc6MCAwIC42ZW0gMDtcblxuXHQmID4gc3ZnIHtcblx0XHQvL21hcmdpbi10b3A6LS4zcmVtO1xuXHRcdHRyYW5zZm9ybTp0cmFuc2xhdGVZKC0uNXJlbSk7XG5cdFx0Ly90cmFuc2Zvcm06IHNjYWxlKC41KTtcblx0fVxuICAgIFxuICAgICY6aG92ZXIge1xuICAgICAgICB0cmFuc2Zvcm06c2NhbGUoMS4yKTtcblx0ICAgIHRyYW5zaXRpb24tZHVyYXRpb246IC4yNXM7XG4gICAgfVxufVxuXG4uc3NCdG5IdWx1IHtcblx0XG5cdHdpZHRoOiAyN3B4O1xuXHRtYXJnaW4tdG9wOiA0cHg7XG5cdG1hcmdpbi1yaWdodDoxMHB4O1xuXHRvcGFjaXR5OiAuNztcblx0Y3Vyc29yOiBwb2ludGVyO1xuXHRcblx0Jjpob3ZlciB7XG5cdFx0b3BhY2l0eTogMTtcblx0fVxufVxuXG4uc3NCdG5BbWF6b24ge1xuXHRtYXJnaW4tbGVmdDogMS41dnc7XG4gICAgXG5cdG91dGxpbmU6IG5vbmU7XG5cdFxuICAgXHRjdXJzb3I6IHBvaW50ZXI7XG4gICBcdG9wYWNpdHk6IC44O1xuXG4gICBcdC8vei1pbmRleDogOTk5OTk5OTk5OTtcblxuICAgICY6aG92ZXIge1xuICAgICAgICBvcGFjaXR5OiAxO1xuICAgIH1cbn1cblxuQG1lZGlhIChtaW4td2lkdGg6IDEyMDBweCkgeyAuc3NCdG5BbWF6b24geyB3aWR0aDogMS42NjY2NjY2NjY2NjY2NjY1dnc7IGhlaWdodDogMS42NjY2NjY2NjY2NjY2NjY1dnc7IH0gfVxuQG1lZGlhIChtYXgtd2lkdGg6IDExOTlweCkgeyAuc3NCdG5BbWF6b24geyB3aWR0aDogMjBweDsgaGVpZ2h0OiAyMHB4OyB9IH1cblxuXG4uc3NCdG5NYXgge1xuXG4gICAgd2lkdGg6IDI0cHg7XG4gICAgaGVpZ2h0OiAyNHB4O1xuXHRtYXJnaW46IDRweDtcblx0cGFkZGluZzoxMnB4O1xuXHRib3gtc2l6aW5nOiBjb250ZW50LWJveDtcblxuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBvcGFjaXR5OiAwLjc7XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcblxuXHQmOmhvdmVyIHtcblx0XHRvcGFjaXR5OiAxO1xuXHRcdHRyYW5zZm9ybTogc2NhbGUoMS4yKTtcblx0fVxuXG5cdHN2ZyB7XG5cdFx0d2lkdGg6IDI0cHg7XG5cdFx0aGVpZ2h0OiAyNHB4O1xuXHR9XG59XG5cbi5zc0J0bkRpc25leSB7XG5cdC8vd2lkdGg6IDI2cHg7XG4gICAgLy9tYXJnaW4tcmlnaHQ6IDEzcHg7XG4gICAgb3BhY2l0eTogLjc7XG5cblx0Jjpob3ZlciB7XG5cdFx0b3BhY2l0eTogMTtcblx0fVxuXG5cdHN2ZyB7XG5cdFx0d2lkdGg6IDI1cHggIWltcG9ydGFudDtcblx0XHRoZWlnaHQ6IDMxcHggIWltcG9ydGFudDtcblx0XHRwYWRkaW5nLXRvcDogNHB4O1xuXHRcdG1hcmdpbi1yaWdodDogN3B4O1xuXHR9XG59XG5cbi5zc0J0bkFwcGxlIHtcblx0Ly93aWR0aDogMjZweDtcbiAgICAvL21hcmdpbi1yaWdodDogMTNweDtcblxuXHRjdXJzb3I6IHBvaW50ZXI7XG5cblxuICAgIG9wYWNpdHk6IC43O1xuXG5cdCY6aG92ZXIge1xuXHRcdG9wYWNpdHk6IDE7XG5cdH1cblxuXHRzdmcge1xuXHRcdHdpZHRoOiAyMnB4ICFpbXBvcnRhbnQ7XG5cdFx0aGVpZ2h0OiAyMnB4ICFpbXBvcnRhbnQ7XG5cdFx0bWFyZ2luLXJpZ2h0OiAycHggIWltcG9ydGFudDtcblx0fVxufSIsImJvZHkgLnZzTm90aWZpY2F0aW9uIHtcblxuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgaGVpZ2h0OiA0cmVtO1xuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgcG9zaXRpb246IGZpeGVkO1xuICAgIHotaW5kZXg6IDEwMDAwMDAwMDA7XG4gICAgdG9wOi00cmVtO1xuXG4gICAgcGFkZGluZzogLjc1cmVtIDEuMjVlbTtcbiAgICBib3JkZXI6IDFweCBzb2xpZCB0cmFuc3BhcmVudDtcbiAgICBib3JkZXItcmFkaXVzOiAuMjVlbTtcbiAgICBmb250LXNpemU6IDEycHg7XG4gICAgaGVpZ2h0OiBmaXQtY29udGVudDtcbiAgICBqdXN0aWZ5LXNlbGY6IGNlbnRlcjtcbiAgICB3aWR0aDogYXV0bztcblxuICAgIGFuaW1hdGlvbi1uYW1lOiBub3RpZmljYXRpb247XG4gICAgYW5pbWF0aW9uLWl0ZXJhdGlvbi1jb3VudDogMTtcbiAgICBhbmltYXRpb24tZHVyYXRpb246IDJzO1xuXG4gICAgQGtleWZyYW1lcyBub3RpZmljYXRpb24ge1xuICAgICAgICAwJSB7dG9wOiAtNHJlbTt9XG4gICAgICAgIDI1JSB7dG9wOiAzcmVtO31cbiAgICAgICAgODUlIHt0b3A6IDNyZW07fVxuICAgICAgICAxMDAlIHt0b3A6IC00cmVtO31cbiAgICB9XG5cbiAgICAmLnBlcnNpc3Qge1xuICAgICAgICAvL2Rvbid0IHJlc2V0IGFuaW1hdGlvbiBvciBnbyBiYWNrIHRvIGJlZ2lubmluZ1xuXG4gICAgICAgIHRvcDogM3JlbTtcblxuICAgICAgICBhbmltYXRpb24tbmFtZTogbm90aWZpY2F0aW9uLXBlcnNpc3Q7XG4gICAgICAgIGFuaW1hdGlvbi1pdGVyYXRpb24tY291bnQ6IDE7XG4gICAgICAgIGFuaW1hdGlvbi1kdXJhdGlvbjogMXM7XG5cbiAgICAgICAgQGtleWZyYW1lcyBub3RpZmljYXRpb24tcGVyc2lzdCB7XG4gICAgICAgICAgICAwJSB7dG9wOiAtNHJlbTt9XG4gICAgICAgICAgICAxMDAlIHt0b3A6IDNyZW07fVxuICAgICAgICB9XG4gICAgfVxuXG5cbiAgICAmLnN1Y2Nlc3Mge1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZDRlZGRhO1xuICAgICAgICBib3JkZXItY29sb3I6ICNjM2U2Y2I7XG4gICAgICAgIGNvbG9yOiAjMTU1NzI0O1xuICAgIH1cblxuICAgICYuZmFpbCB7XG4gICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNlZGQ0ZDQ7XG4gICAgICAgIGJvcmRlci1jb2xvcjogI2U2YzNjMztcbiAgICAgICAgY29sb3I6ICNiNjI0MjQ7XG4gICAgfVxuXG4gICAgLnZzTm90aWZpY2F0aW9uQ2xvc2Uge1xuICAgICAgICBjb2xvcjogI2I2MjQyNDtcbiAgICAgICAgYm9yZGVyOiBub25lO1xuICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcbiAgICAgICAgcGFkZGluZzogMDtcbiAgICAgICAgbGluZS1oZWlnaHQ6IDA7XG4gICAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAgICAgbGVmdDogLjVyZW07XG4gICAgICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICB9XG5cbiAgICAudnNOQ29udGVudCB7XG4gICAgICAgIC8vY29udGVudDogJ1NjcmVlbnNob3QgY29waWVkIHRvIGNsaXBib2FyZCEnO1xuICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgICAgIHotaW5kZXg6IDEwMDAwMDAwMDA7XG4gICAgICAgIG1hcmdpbi1ib3R0b206IDFlbTtcbiAgICAgICAgcGFkZGluZzogLjc1cmVtIDEuMjVlbTtcbiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgdHJhbnNwYXJlbnQ7XG4gICAgICAgIGJvcmRlci1yYWRpdXM6IC4yNWVtO1xuICAgICAgICBmb250LXNpemU6IDEycHg7XG4gICAgICAgIGhlaWdodDogZml0LWNvbnRlbnQ7XG4gICAgICAgIHRvcDowO1xuICAgIH1cblxuICAgIGEge1xuICAgICAgICBjb2xvcjojYjYyNDI0O1xuICAgIH1cblxufSIsIi5zc01vZGFsIHtcblxuICAgIGRpc3BsYXk6IG5vbmU7XG5cbiAgICAmLnZpc2libGUge1xuICAgICAgICBkaXNwbGF5OmJsb2NrO1xuICAgIH1cblxuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB6LWluZGV4OiAxMDAwMDAwMDA7XG5cbiAgICByaWdodDoyMHB4O1xuICAgIFxuICAgIG9wYWNpdHk6IDA7XG5cbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiNmZmZlZmE7XG4gICAgYm9yZGVyLXJhZGl1czogM3B4O1xuXG4gICAgcGFkZGluZzogMjVweDtcblxuICAgIGNvbG9yOiAjNTI1MjUyO1xuICAgIGZvbnQtZmFtaWx5OiBtdWxpLCBzYW5zLXNlcmlmO1xuXG4gICAgYm94LXNoYWRvdzogMHB4IDRweCA4cHggMHB4IHJnYmEoMCwgMCwgMCwgMC4xNSk7XG5cbiAgICBhbmltYXRpb24tbmFtZTogYW5pbWF0ZU9uO1xuICAgIGFuaW1hdGlvbi1kdXJhdGlvbjogLjJzO1xuICAgIGFuaW1hdGlvbi1maWxsLW1vZGU6IGZvcndhcmRzO1xuICAgIFxuICAgICoge1xuICAgICAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlO1xuICAgICAgICBsaW5lLWhlaWdodDogbm9ybWFsO1xuICAgICAgICBmb250LXdlaWdodDogbm9ybWFsO1xuICAgIH1cblxuICAgIEBrZXlmcmFtZXMgYW5pbWF0ZU9uIHtcbiAgICAgICAgZnJvbSB7XG4gICAgICAgICAgICBvcGFjaXR5OiAwO1xuICAgICAgICAgICAgdG9wOiAwcHg7XG4gICAgICAgIH1cbiAgICAgICAgdG8ge1xuICAgICAgICAgICAgb3BhY2l0eTogMTtcbiAgICAgICAgICAgIHRvcDogMjBweDtcbiAgICAgICAgfVxuICAgIH1cblxuICAgIC5jbG9zZSB7XG4gICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICAgICAgcmlnaHQ6IDEwcHg7XG4gICAgICAgIHRvcDogMTBweDtcbiAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuICAgICAgICBvcGFjaXR5OiAuNTtcblxuICAgICAgICBiYWNrZ3JvdW5kLWltYWdlOiB1cmwoJy4uL2ltYWdlcy9jbG9zZS5zdmcnKTtcblxuICAgICAgICB3aWR0aDoxMHB4O1xuICAgICAgICBoZWlnaHQ6MTBweDtcblxuICAgIH1cblxuICAgIC5zc0J1dHRvbnMge1xuXG4gICAgICAgIG1hcmdpbi10b3A6IDI1cHg7XG4gICAgICAgIHRleHQtYWxpZ246IHJpZ2h0O1xuXG4gICAgICAgIC5zc0J1dHRvbiwgYSAuc3NCdXR0b24ge1xuICAgICAgICAgICAgZGlzcGxheTppbmxpbmUtYmxvY2s7XG5cbiAgICAgICAgICAgIGhlaWdodDoyMHB4O1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBwYWRkaW5nOjNweCAxMnB4IDNweDtcbiAgICAgICAgICAgIG1hcmdpbi1sZWZ0OiAxNHB4O1xuICAgICAgICAgICAgXG4gICAgICAgICAgICBib3JkZXItcmFkaXVzOiA0cHg7XG4gICAgICAgICAgICBib3gtc2hhZG93OiAwcHggNHB4IDhweCAwcHggcmdiYSgwLCAwLCAwLCAwLjE1KTtcbiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNGRkZGRkY7XG4gICAgICAgICAgICBcbiAgICAgICAgICAgIGZvbnQtc2l6ZTogMTJweDtcbiAgICAgICAgICAgIGNvbG9yOiAjNTI1MjUyO1xuICAgICAgICAgICAgbGluZS1oZWlnaHQ6IDIwcHg7XG4gICAgICAgICAgICBmb250LXdlaWdodDogbm9ybWFsO1xuICAgIFxuICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyO1xuXG4gICAgICAgICAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XG5cbiAgICAgICAgICAgIC5lbW9qaSB7XG4gICAgICAgICAgICAgICAgZm9udC1zaXplOiAxNXB4O1xuICAgICAgICAgICAgICAgIHZlcnRpY2FsLWFsaWduOiBib3R0b207XG4gICAgICAgICAgICB9XG4gICAgXG4gICAgICAgICAgICAmLmJsdWUge1xuICAgICAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICMxOWFjZWY7XG4gICAgICAgICAgICAgICAgY29sb3I6ICNGRkZGRkY7XG4gICAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICB9XG5cbiAgICAuaWNvbiB7XG4gICAgICAgIGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vaW1hZ2VzL2ljb25CbHVlLnN2ZycpO1xuICAgICAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xuXG4gICAgICAgIHdpZHRoOjMwcHg7XG4gICAgICAgIGhlaWdodDozMHB4O1xuXG4gICAgICAgIHZlcnRpY2FsLWFsaWduOiB0b3A7XG4gICAgICAgIG1hcmdpbi1yaWdodDogMjJweDtcbiAgICAgICAgbWFyZ2luLXRvcDoycHg7XG5cbiAgICAgICAgZGlzcGxheTppbmxpbmUtYmxvY2s7XG4gICAgfVxuXG4gICAgLmJvZHkge1xuXG4gICAgICAgIGRpc3BsYXk6aW5saW5lLWJsb2NrO1xuICAgICAgICB3aWR0aDozMTVweDtcblxuICAgICAgICAudGl0bGUge1xuICAgICAgICAgICAgZm9udC1zaXplOiAxNXB4O1xuICAgICAgICAgICAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgICAgICAgICAgIG1hcmdpbi1ib3R0b206IDdweDtcbiAgICAgICAgfVxuICAgICAgICAuZGVzY3JpcHRpb24ge1xuICAgICAgICAgICAgZm9udC1zaXplOiAxM3B4O1xuICAgICAgICAgICAgZm9udC13ZWlnaHQ6IGxpZ2h0ZXI7XG4gICAgICAgIH1cbiAgICB9XG5cbn0iLCJAdXNlIFwiU2NyZWVuc2hvdENvbnRyb2wvYnV0dG9uc1wiO1xuXG5AdXNlIFwiU2NyZWVuc2hvdENvbnRyb2wvbm90aWZpY2F0aW9uc1wiO1xuQHVzZSBcIlNjcmVlbnNob3RDb250cm9sL21vZGFsXCI7XG5cbmJvZHkge1xuXG5cdCNzc1RlbXBIb2xkZXIge1xuXHRcdHBvc2l0aW9uOmZpeGVkO1xuXHRcdHotaW5kZXg6MTAwMDAwMDAwMDAwMDtcblx0XHR3aWR0aDoxMDAlO1xuXHRcdGhlaWdodDoxMDAlO1xuXHRcdHRvcDowO1xuXHRcdHBvaW50ZXItZXZlbnRzOiBub25lO1xuXG5cdFx0dmlkZW8ge1xuXHRcdFx0d2lkdGg6YXV0byAhaW1wb3J0YW50O1xuXHRcdFx0aGVpZ2h0OmF1dG8gIWltcG9ydGFudDtcblx0XHRcdG1heC13aWR0aDoxMDAlICFpbXBvcnRhbnQ7XG5cdFx0XHRtYXgtaGVpZ2h0OiAxMDAlICFpbXBvcnRhbnQ7XG5cdFx0XHR0b3A6IDAgIWltcG9ydGFudDtcblx0XHRcdGxlZnQ6IDAgIWltcG9ydGFudDtcblx0XHRcdHRyYW5zZm9ybTogbm9uZSAhaW1wb3J0YW50O1xuXHRcdH1cblx0fVxuXG5cdCYuc3NUYWtlU2NyZWVuc2hvdCB7XG5cdFx0XG5cdFx0LnNzRWxlbWVudCB7XG5cdFx0XHR6LWluZGV4OiAxMDAwMDAwMDAwMDAgIWltcG9ydGFudDtcblx0XHR9XG5cdFx0XG5cdFx0Ji5zc05ldGZsaXgge1xuXHRcblx0XHRcdFtkYXRhLXVpYT12aWRlby1jYW52YXNdIHtcblx0XHRcdFx0ei1pbmRleDogMTAwMDAwMDA7XG5cdFx0XHR9XG5cdFx0XHRcblx0XHRcdHZpZGVvIHtcblx0XHRcdFx0YmFja2dyb3VuZC1jb2xvcjogIzAwMDAwMDtcblx0XHRcdFx0Ly9oZWlnaHQ6IGF1dG8gIWltcG9ydGFudDtcblx0XHRcdH1cblxuXHRcdFx0LnBsYXllci10aW1lZHRleHQge1xuXG5cdFx0XHRcdGRpc3BsYXk6bm9uZSAhaW1wb3J0YW50O1xuXHRcdFx0fVx0XHRcdFxuXG5cdFx0XHQmLnNob3dTdWJzIHtcblx0XHRcdFx0XG5cdFx0XHRcdC5wbGF5ZXItdGltZWR0ZXh0IHtcblxuXHRcdFx0XHRcdGRpc3BsYXk6IGJsb2NrICFpbXBvcnRhbnQ7XG5cdFx0XHRcdFx0Ly9ib3R0b206IDEwJSAhaW1wb3J0YW50O1xuXHRcdFx0XHR9XG5cdFx0XHR9XG5cdFx0fVxuXG5cdFx0Ji5zc0FtYXpvbiB7XG5cblx0XHRcdC5kdi1wbGF5ZXItZnVsbHNjcmVlbiB2aWRlbyB7XG5cdFx0XHRcdHotaW5kZXg6IDk5OTk5OTk5ICFpbXBvcnRhbnQ7XG5cdFx0XHR9XG5cdFx0fVxuXG5cdFx0Ji5zc0Rpc25leSB7XG5cblx0XHRcdC5idG0tbWVkaWEtb3ZlcmxheXMtY29udGFpbmVyIHtcblx0XHRcdFx0ZGlzcGxheTpub25lO1xuXHRcdFx0fVxuXG5cdFx0XHQuVGltZWRUZXh0T3ZlcmxheSB7XG5cdFx0XHRcdGRpc3BsYXk6IG5vbmU7XG5cdFx0XHR9XG5cblx0XHRcdCYuc2hvd1N1YnMge1xuXHRcdFx0XHRcblx0XHRcdFx0LlRpbWVkVGV4dE92ZXJsYXkge1xuXHRcdFx0XHRcdGRpc3BsYXk6IGJsb2NrO1xuXHRcdFx0XHR9XG5cdFx0XHR9XG5cdFx0fVxuXG5cdFx0Ji5zc0h1bHUge1xuXHRcdFx0LkNvbnRlbnRQbGF5ZXJfX2NvbnRlbnRBcmVhIHtcblx0XHRcdFx0ei1pbmRleDogMTAwMDAwMDAwMDA7XG4gICAgXHRcdFx0cG9zaXRpb246IHJlbGF0aXZlO1xuXHRcdFx0fVxuXG5cdFx0XHQuQ2xvc2VkQ2FwdGlvbiB7XG5cdFx0XHRcdGRpc3BsYXk6bm9uZTtcblx0XHRcdH1cblxuXHRcdFx0Ji5zaG93U3VicyB7XG5cdFx0XHRcdC5DbG9zZWRDYXB0aW9uIHtcblx0XHRcdFx0XHRkaXNwbGF5OmJsb2NrO1xuXHRcdFx0XHR9XG5cdFx0XHR9XG5cdFx0fVxuXG5cdFx0Ji5zc01heCB7XG5cblx0XHRcdHZpZGVvIHtcblx0XHRcdFx0ei1pbmRleDogOTk5OTk5OTk7XG5cdFx0XHRcdHBvc2l0aW9uOiByZWxhdGl2ZTtcblx0XHRcdH1cblxuXHRcdFx0Lypcblx0XHRcdC8vZG9uJ3Qga25vdyB3aGF0IHRoaXMgaXMgZm9yXG5cdFx0XHQqOmhhcyh2aWRlbykge1xuXHRcdFx0XHR6LWluZGV4OiA5OTk5OTk5OTtcblx0XHRcdFx0cG9zaXRpb246IHJlbGF0aXZlO1xuXHRcdFx0fSovXG5cblx0XHR9XG5cblx0XHQmLnNzWW91dHViZSB7XG5cblx0XHRcdC5odG1sNS12aWRlby1jb250YWluZXIsIC55dHAtY2FwdGlvbi13aW5kb3ctY29udGFpbmVyIHtcblx0XHRcdFx0ei1pbmRleDogOTk5OTk5OTk5ICFpbXBvcnRhbnQ7XG5cdFx0XHR9XG5cdFx0fVxuXG5cdFx0Ji5zc0FwcGxlIHtcblx0XHRcdCNhcHBsZS1tdXNpYy12aWRlby1wbGF5ZXIge1xuXHRcdFx0XHR6LWluZGV4OiA5OTk5OTk5OTkgIWltcG9ydGFudDtcblx0XHRcdH1cblxuXHRcdFx0LnZpZGVvLXBsYXllci1zY3JpbSB7XG5cdFx0XHRcdGRpc3BsYXk6bm9uZTtcblx0XHRcdH1cblx0XHR9XG5cdH1cblxuXHQuc3NXcmFwcGVyIHtcblx0XHRvdmVyZmxvdzogaGlkZGVuO1xuXHR9XG5cblxufSJdLCJzb3VyY2VSb290IjoiIn0= */</style><style id="_goober"> .go1475592160{height:0;}.go1671063245{height:auto;}.go1888806478{display:flex;flex-wrap:wrap;flex-grow:1;}@media (min-width:600px){.go1888806478{flex-grow:initial;min-width:288px;}}.go167266335{background-color:#313131;font-size:0.875rem;line-height:1.43;letter-spacing:0.01071em;color:#fff;align-items:center;padding:6px 16px;border-radius:4px;box-shadow:0px 3px 5px -1px rgba(0,0,0,0.2),0px 6px 10px 0px rgba(0,0,0,0.14),0px 1px 18px 0px rgba(0,0,0,0.12);}.go3162094071{padding-left:20px;}.go3844575157{background-color:#313131;}.go1725278324{background-color:#43a047;}.go3651055292{background-color:#d32f2f;}.go4215275574{background-color:#ff9800;}.go1930647212{background-color:#2196f3;}.go946087465{display:flex;align-items:center;padding:8px 0;}.go703367398{display:flex;align-items:center;margin-left:auto;padding-left:16px;margin-right:-8px;}.go3963613292{width:100%;position:relative;transform:translateX(0);top:0;right:0;bottom:0;left:0;min-width:288px;}.go1141946668{box-sizing:border-box;display:flex;max-height:100%;position:fixed;z-index:1400;height:auto;width:auto;transition:top 300ms ease 0ms,right 300ms ease 0ms,bottom 300ms ease 0ms,left 300ms ease 0ms,max-width 300ms ease 0ms;pointer-events:none;max-width:calc(100% - 40px);}.go1141946668 .notistack-CollapseWrapper{padding:6px 0px;transition:padding 300ms ease 0ms;}@media (max-width:599.95px){.go1141946668{width:100%;max-width:calc(100% - 32px);}}.go3868796639 .notistack-CollapseWrapper{padding:2px 0px;}.go3118922589{top:14px;flex-direction:column;}.go1453831412{bottom:14px;flex-direction:column-reverse;}.go4027089540{left:20px;}@media (min-width:600px){.go4027089540{align-items:flex-start;}}@media (max-width:599.95px){.go4027089540{left:16px;}}.go2989568495{right:20px;}@media (min-width:600px){.go2989568495{align-items:flex-end;}}@media (max-width:599.95px){.go2989568495{right:16px;}}.go4034260886{left:50%;transform:translateX(-50%);}@media (min-width:600px){.go4034260886{align-items:center;}}</style><meta name="maxai-mui-classname-prefix" content="injectDocumentStart-2025-10-26T07:52:11.415Z"><script src="chrome-extension://mhnlakgilnojmhinhkckjpncpbhabphi/apps/content-scripts/website/maxai.js"></script><style type="text/css">.transform-component-module_wrapper__SPB86 {
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  margin: 0;
+  padding: 0;
+}
+.transform-component-module_content__FBWxo {
+  display: flex;
+  flex-wrap: wrap;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0;
+  padding: 0;
+  transform-origin: 0% 0%;
+}
+.transform-component-module_content__FBWxo img {
+  pointer-events: none;
+}
+</style><link id="USE_CHAT_GPT_AI_CONTENT_CSS_LINK_TAG" rel="stylesheet" href="chrome-extension://mhnlakgilnojmhinhkckjpncpbhabphi/content.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&amp;display=swap"></head>
+<body class="editing">
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="logo" aria-label="RQ Logo">Q</div>
+      <h1 id="siteTitle" data-editable="" contenteditable="true" class="admin">RQ娛樂影像工作室</h1>
+    </div>
+    <nav class="menu">
+      <a href="#works" class="btn small">作品</a>
+      <a href="#contact" class="btn small">聯絡</a>
+      <a href="#about" class="btn small">關於</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" id="about">
+    <div>
+      <h2 id="heroTitle" data-editable="" contenteditable="true" class="admin">把生活拍成故事，把品牌拍成記憶。</h2>
+      <p class="lead admin" id="heroLead" data-editable="" contenteditable="true">我們專注於 Podcast 節目製作、短影片廣告、形象影片、證言廣告、節目企劃與執行。極簡畫面裡，留下最剛好的情緒與光。</p>
+      <div class="cta">
+        <a id="ctaIG" class="btn primary" href="https://www.instagram.com/rqverycute" target="_blank" rel="noopener">IG 私訊</a>
+        <a id="ctaFB" class="btn" href="#" target="_blank" rel="noopener">Facebook 粉專</a>
+      </div>
+    </div>
+    <div>
+      <div class="contact-cards">
+        <div class="contact-card"><div class="sec-title" style="margin-bottom:6px"><span class="dot"></span><h3 style="font-size:16px">服務項目</h3></div>
+          <div class="pill">短影片廣告</div><div class="pill">形象影片</div><div class="pill">證言廣告</div><div class="pill">節目製作</div><div class="pill">Podcast</div>
+        </div>
+        <div class="contact-card"><div class="sec-title" style="margin-bottom:6px"><span class="dot"></span><h3 style="font-size:16px">快速資訊</h3></div>
+          <div class="meta"><strong>電洽 / 合作</strong><br><span id="quickNote" data-editable="" contenteditable="true" class="admin">私訊 IG 或 FB，提供大綱／預算／時程，我們 24 小時內回覆。</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <div class="sec-head"><div class="sec-title"><span class="dot"></span><h2 style="font-size:22px">立即收聽 / 觀看</h2></div></div>
+    <div class="embeds">
+      <div class="embed-card">
+        <div class="embed-head"><div class="embed-title">Podcast《白目情侶週記》</div><button class="embed-btn" id="btnEditPlaylist" style="display: inline-flex;">更換清單</button></div>
+        <div class="embed"><iframe id="podcastEmbed" src="https://www.youtube.com/embed/videoseries?list=PLWPzSr-SQ2_oVby6sNPnVS7mzcG8Dv4Nz&amp;rel=0&amp;modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy"></iframe></div>
+        <div class="meta" style="margin-top:6px">※ 來源：YouTube 播放清單</div>
+      </div>
+      <div class="embed-card">
+        <div class="embed-head"><div class="embed-title">精選影片</div><button class="embed-btn" id="btnEditVideo" style="display: inline-flex;">更換影片</button></div>
+        <div class="embed"><iframe id="videoEmbed" src="https://www.youtube.com/embed/t0_lI52JDeI?rel=0&amp;modestbranding=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy"></iframe></div>
+        <div class="meta" style="margin-top:6px">※ 可更換為任一 YouTube 影片</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="works">
+    <div class="sec-head"><div class="sec-title"><span class="dot"></span><h2 style="font-size:22px">作品集</h2></div></div>
+    <div class="bar">
+      <div class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.2-4.2M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z" stroke="#999" stroke-width="2" stroke-linecap="round"></path></svg>
+        <input id="search" type="search" placeholder="搜尋標題或連結…" data-sharkid="__0">
+      </div>
+      <div class="right-actions">
+        <button id="btnToggleGroup" class="btn small">分類清單</button>
+        <button id="btnExpandAll" class="btn small">全部展開</button>
+        <button id="btnCollapseAll" class="btn small">全部收合</button>
+      </div>
+    </div>
+    <div id="catList" style="display: block;"><div class="cat"><div class="cover"><div class="cover-inner"><div class="cover-info"><h3>PODCAST 節目</h3><p>兩人一麥・好好說話　<span class="cat-count">共 1 項</span></p></div><div class="cover-illu"><svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="338" fill="none"></rect><circle cx="180" cy="170" r="60" fill="#FFEFD9" stroke="#9C6B3D" stroke-width="3"></circle><circle cx="420" cy="170" r="60" fill="#FFEFD9" stroke="#9C6B3D" stroke-width="3"></circle><rect x="278" y="130" width="44" height="120" rx="10" fill="var(--orange)"></rect><rect x="270" y="248" width="60" height="12" rx="6" fill="#E3C7A2"></rect><line x1="260" y1="130" x2="340" y2="130" stroke="#9C6B3D" stroke-width="3"></line><line x1="260" y1="250" x2="340" y2="250" stroke="#9C6B3D" stroke-width="3"></line><circle cx="180" cy="170" r="6" fill="#9C6B3D"></circle><circle cx="420" cy="170" r="6" fill="#9C6B3D"></circle></svg></div></div></div><div class="cat-head"><div class="cat-title"><span class="dot"></span><span>PODCAST 節目</span></div><div class="cat-actions"><button class="btn small">展開</button></div></div><div class="cat-body"><div class="grid" data-cat="podcast"><div class="card" data-cat="podcast" data-idx="0" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">《白目情侶週記》播放清單</div><div class="meta">youtube.com</div><div class="actions"><a class="btn small open" href="https://youtube.com/playlist?list=PLWPzSr-SQ2_oVby6sNPnVS7mzcG8Dv4Nz&amp;si=IzthrcTC3XichKtF" target="_blank" rel="noopener">開啟連結</a></div></div></div></div></div><div class="cat open"><div class="cover"><div class="cover-inner"><div class="cover-info"><h3>短影片廣告</h3><p>短影即擊中・一鏡入魂　<span class="cat-count">共 12 項</span></p></div><div class="cover-illu"><svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="70" width="220" height="140" rx="14" fill="#FFF" stroke="#9C6B3D" stroke-width="3"></rect><polygon points="125,125 205,170 125,215" fill="var(--orange)"></polygon><rect x="360" y="90" width="150" height="190" rx="16" fill="#FFF" stroke="#9C6B3D" stroke-width="3"></rect><circle cx="435" cy="150" r="34" fill="#FFE5C2" stroke="#9C6B3D" stroke-width="3"></circle><rect x="415" y="205" width="40" height="40" rx="8" fill="var(--orange)"></rect></svg></div></div></div><div class="cat-head"><div class="cat-title"><span class="dot"></span><span>短影片廣告</span></div><div class="cat-actions"><button class="btn small">收合</button></div></div><div class="cat-body"><div class="grid" data-cat="shortads"><div class="card" data-cat="shortads" data-idx="0" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">麥當勞oreo花生冰炫風</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DK3to-PhV25/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shortads" data-idx="1" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">麥當勞oreo花生冰炫風</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DK4TC7Uytk8/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shortads" data-idx="2" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">經典汽車</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DEjHmrfBR21/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shortads" data-idx="3" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">短影片廣告 3</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/reel/DGKd2p7toNV/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shortads" data-idx="4" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">短影片廣告 4</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DKGdXN7BSyf/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shortads" data-idx="5" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">短影片廣告 6</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DDJKTiwh6vn/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shortads" data-idx="6" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">短影片廣告 7</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DKdr-XQTdXo/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shortads" data-idx="7" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">短影片廣告 8</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/reel/DGKd2p7toNV/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shortads" data-idx="8" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">短影片廣告 9</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/rqverycute/reel/DCTrqu1hP7B/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shortads" data-idx="9" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">短影片廣告 10</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DJRNuFRyMdy/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shortads" data-idx="10" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">短影片廣告 11</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DGzXkTLhyjJ/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shortads" data-idx="11" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">短影片廣告 12</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/reel/DL7qshjSXMK/" target="_blank" rel="noopener">開啟連結</a></div></div></div></div></div><div class="cat"><div class="cover"><div class="cover-inner"><div class="cover-info"><h3>藏鏡人系列</h3><p>藏鏡人・幕後紀錄　<span class="cat-count">共 5 項</span></p></div><div class="cover-illu"><svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><path d="M60 170 Q300 70 540 170 Q300 270 60 170Z" fill="#FFEFD9" stroke="#9C6B3D" stroke-width="3"></path><circle cx="300" cy="170" r="46" fill="var(--orange)"></circle><rect x="230" y="60" width="140" height="28" rx="6" fill="#FFF" stroke="#9C6B3D" stroke-width="3"></rect><rect x="230" y="92" width="140" height="18" rx="4" fill="#FFF" stroke="#9C6B3D" stroke-width="3"></rect></svg></div></div></div><div class="cat-head"><div class="cat-title"><span class="dot"></span><span>藏鏡人系列</span></div><div class="cat-actions"><button class="btn small">展開</button></div></div><div class="cat-body"><div class="grid" data-cat="behind"><div class="card" data-cat="behind" data-idx="0" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">藏鏡人 1</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DInYfEKyuK3/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="behind" data-idx="1" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">藏鏡人 2</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DH370JFzFka/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="behind" data-idx="2" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">藏鏡人 3</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DJlCFbgBvbs/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="behind" data-idx="3" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">藏鏡人 4</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DJLMJ8cBrQh/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="behind" data-idx="4" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">藏鏡人 5</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DJGBI0VBDRz/" target="_blank" rel="noopener">開啟連結</a></div></div></div></div></div><div class="cat"><div class="cover"><div class="cover-inner"><div class="cover-info"><h3>形象影片</h3><p>形象構築・光與影的名片　<span class="cat-count">共 6 項</span></p></div><div class="cover-illu"><svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><circle cx="170" cy="170" r="70" fill="#FFF" stroke="#9C6B3D" stroke-width="3"></circle><circle cx="170" cy="170" r="30" fill="var(--orange)"></circle><circle cx="420" cy="170" r="90" fill="none" stroke="#9C6B3D" stroke-width="3" stroke-dasharray="6 10"></circle><circle cx="420" cy="170" r="30" fill="var(--orange)"></circle></svg></div></div></div><div class="cat-head"><div class="cat-title"><span class="dot"></span><span>形象影片</span></div><div class="cat-actions"><button class="btn small">展開</button></div></div><div class="cat-body"><div class="grid" data-cat="brand"><div class="card" data-cat="brand" data-idx="0" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">形象影片 1</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DLj-XoiTlyI/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="brand" data-idx="1" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">形象影片 2</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DJl1UNnz3F6/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="brand" data-idx="2" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">形象影片 3</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DH3pfAUzqq3/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="brand" data-idx="3" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">形象影片 4</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DMpj7CXTFR7/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="brand" data-idx="4" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">形象影片 5</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DMaqy4pz8qA/" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="brand" data-idx="5" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">形象影片 6</div><div class="meta">instagram.com</div><div class="actions"><a class="btn small open" href="https://www.instagram.com/p/DMcnM5sT-QY/" target="_blank" rel="noopener">開啟連結</a></div></div></div></div></div><div class="cat"><div class="cover"><div class="cover-inner"><div class="cover-info"><h3>證言廣告</h3><p>真實口碑・說服力上線　<span class="cat-count">共 8 項</span></p></div><div class="cover-illu"><svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect x="120" y="90" width="360" height="140" rx="16" fill="#FFF" stroke="#9C6B3D" stroke-width="3"></rect><text x="150" y="160" font-size="64" fill="var(--orange)" font-family="serif">“ ”</text><rect x="220" y="240" width="160" height="12" rx="6" fill="#E3C7A2"></rect></svg></div></div></div><div class="cat-head"><div class="cat-title"><span class="dot"></span><span>證言廣告</span></div><div class="cat-actions"><button class="btn small">展開</button></div></div><div class="cat-body"><div class="grid" data-cat="testimony"><div class="card" data-cat="testimony" data-idx="0" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">證言廣告 1</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/3Wa_3spT3aY" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="testimony" data-idx="1" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">證言廣告 2</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/Tj7lKWKZj8U" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="testimony" data-idx="2" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">證言廣告 3</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/fQcpSTPE4fM" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="testimony" data-idx="3" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">證言廣告 4</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/vhtDZfVhafM" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="testimony" data-idx="4" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">證言廣告 5</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/t9nsWWcfKWI" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="testimony" data-idx="5" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">證言廣告 6</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/-VRPXP1yW7U" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="testimony" data-idx="6" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">證言廣告 7</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/kp4x2ClTR90" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="testimony" data-idx="7" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">證言廣告 8</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/zOPASyqrOqc" target="_blank" rel="noopener">開啟連結</a></div></div></div></div></div><div class="cat"><div class="cover"><div class="cover-inner"><div class="cover-info"><h3>節目製作</h3><p>節目企劃・內容製作　<span class="cat-count">共 16 項</span></p></div><div class="cover-illu"><svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect x="120" y="70" width="360" height="200" rx="14" fill="#FFF" stroke="#9C6B3D" stroke-width="3"></rect><polygon points="300,130 360,170 300,210" fill="var(--orange)"></polygon><rect x="240" y="280" width="120" height="10" rx="5" fill="#E3C7A2"></rect></svg></div></div></div><div class="cat-head"><div class="cat-title"><span class="dot"></span><span>節目製作</span></div><div class="cat-actions"><button class="btn small">展開</button></div></div><div class="cat-body"><div class="grid" data-cat="shows"><div class="card" data-cat="shows" data-idx="0" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 1</div><div class="meta">youtube.com</div><div class="actions"><a class="btn small open" href="https://www.youtube.com/watch?v=t0_lI52JDeI" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="1" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 2</div><div class="meta">youtube.com</div><div class="actions"><a class="btn small open" href="https://www.youtube.com/watch?v=jO_J0opLGcE&amp;t=76s" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="2" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 3</div><div class="meta">youtube.com</div><div class="actions"><a class="btn small open" href="https://www.youtube.com/watch?v=xQEgmB6asXA&amp;t=70s" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="3" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 4</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/tuqjc_3dMdg" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="4" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 5</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/7cLpRdSYzfc" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="5" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 6</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/h1R7CxRCJRc" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="6" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 7</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/JtdX1qPKWcA" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="7" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 8</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/eWtQGFsnxJI" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="8" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 9</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/JAeJV8I-fP0" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="9" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 10</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/jUovV89BiiA" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="10" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 11</div><div class="meta">youtu.be</div><div class="actions"><a class="btn small open" href="https://youtu.be/wx8Y7VIKfgQ" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="11" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 12</div><div class="meta">youtube.com</div><div class="actions"><a class="btn small open" href="https://www.youtube.com/watch?v=GC6jZYH3njs" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="12" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 13</div><div class="meta">youtube.com</div><div class="actions"><a class="btn small open" href="https://www.youtube.com/watch?v=VZRkXoK_9Dc" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="13" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 14</div><div class="meta">youtube.com</div><div class="actions"><a class="btn small open" href="https://www.youtube.com/watch?v=1itzE92qo9I" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="14" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 15</div><div class="meta">youtube.com</div><div class="actions"><a class="btn small open" href="https://www.youtube.com/watch?v=nSFi6or-uQs" target="_blank" rel="noopener">開啟連結</a></div></div><div class="card" data-cat="shows" data-idx="15" draggable="true"><button class="x" title="刪除">×</button><button class="edit" title="編輯">✎</button><div class="drag-hint" title="拖曳排序">⋮⋮</div><div class="title" contenteditable="true">節目製作 16</div><div class="meta">youtube.com</div><div class="actions"><a class="btn small open" href="https://www.youtube.com/watch?v=efSXeNzd7-U" target="_blank" rel="noopener">開啟連結</a></div></div></div></div></div></div>
+    <div class="grid" id="grid" style="display:none"></div>
+  </section>
+
+  <section id="contact">
+    <div class="sec-head"><div class="sec-title"><span class="dot"></span><h2 style="font-size:22px">聯絡我們</h2></div></div>
+    <div class="contact-cards">
+      <div class="contact-card"><h3 style="margin:0 0 6px;font-size:16px">Instagram</h3><p id="igNote" class="meta admin" data-editable="" contenteditable="true">追蹤日常與最新作品，歡迎直接私訊洽談。</p><a id="igLink" class="btn" href="https://www.instagram.com/rqverycute" target="_blank" rel="noopener">前往 IG</a></div>
+      <div class="contact-card"><h3 style="margin:0 0 6px;font-size:16px">Facebook</h3><p id="fbNote" class="meta admin" data-editable="" contenteditable="true">同步發布專案花絮與上線資訊，歡迎留言。</p><a id="fbLink" class="btn" href="#" target="_blank" rel="noopener">前往 FB</a></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="padding:0">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <small>© <span id="year">2025</span> <span id="footTitle">RQ娛樂影像工作室</span>. All rights reserved.</small>
+        <small class="meta">Made with ☕｜支援管理模式、搜尋、分類展開/收合、拖曳排序、匯出單檔</small>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- 管理浮動面板（登入後才顯示） -->
+<div class="admin-fab" style="display: block;">
+  <div class="panel show" id="panel">
+    <button class="btn small" id="btnSettings">設定（站點）</button>
+    <button class="btn small" id="btnAddCat">新增分類</button>
+    <button class="btn small" id="btnRenameCat">重新命名分類</button>
+    <button class="btn small" id="btnDeleteCat">刪除分類</button>
+    <button class="btn small" id="btnAdd">新增連結</button>
+    <button class="btn small" id="btnSave">儲存變更</button>
+    <button class="btn small" id="btnReset">清除儲存</button>
+    <button class="btn small" id="btnExport">匯出單檔</button>
+    <button class="btn small" id="btnLogout">登出</button>
+    <button class="btn small" id="btnExit">離開管理</button>
+  </div>
+  <button class="fab" id="btnAdmin" style="display: inline-flex;">管理中</button>
+</div>
+<div class="admin-tip" id="tip" style="display: none;">已儲存 🔄 已同步到雲端</div>
+
+<!-- 登入（固定帳密；無重設） -->
+<div class="login-mask" id="loginMask" style="display: none;"><div class="login-card">
+  <h3>登入管理後台</h3>
+  <div class="field"><label for="lgUser">帳號</label><input id="lgUser" type="text" placeholder="rqveryfilm"></div>
+  <div class="field"><label for="lgPass">密碼</label><input id="lgPass" type="password" placeholder="你的密碼"></div>
+  <div class="row">
+    <button class="btn primary small" id="btnDoLogin">登入</button>
+    <button class="btn small" id="btnCancelLogin">取消</button>
+  </div>
+</div></div>
+
+<script>var EXPORTED_SITE_DATA={"site":{"title":"RQ娛樂影像工作室","pageTitle":"RQ娛樂影像工作室｜作品集","description":"RQ娛樂影像工作室｜日系清爽的影像敘事：Podcast、短影片廣告、形象影片、證言廣告、節目製作。","ogImage":"","heroTitle":"把生活拍成故事，把品牌拍成記憶。","heroLead":"我們專注於 Podcast 節目製作、短影片廣告、形象影片、證言廣告、節目企劃與執行。極簡畫面裡，留下最剛好的情緒與光。","igUrl":"https://www.instagram.com/rqverycute","fbUrl":"#","notes":{"quick":"私訊 IG 或 FB，提供大綱／預算／時程，我們 24 小時內回覆。","ig":"追蹤日常與最新作品，歡迎直接私訊洽談。","fb":"同步發布專案花絮與上線資訊，歡迎留言。"}},"embeds":{"playlistId":"PLWPzSr-SQ2_oVby6sNPnVS7mzcG8Dv4Nz","featuredVideoId":"t0_lI52JDeI"},"categories":[{"name":"PODCAST 節目","key":"podcast","items":[{"title":"《白目情侶週記》播放清單","url":"https://youtube.com/playlist?list=PLWPzSr-SQ2_oVby6sNPnVS7mzcG8Dv4Nz&si=IzthrcTC3XichKtF"}]},{"name":"短影片廣告","key":"shortads","items":[{"title":"麥當勞oreo花生冰炫風","url":"https://www.instagram.com/p/DK3to-PhV25/"},{"title":"麥當勞oreo花生冰炫風","url":"https://www.instagram.com/p/DK4TC7Uytk8/"},{"title":"經典汽車","url":"https://www.instagram.com/p/DEjHmrfBR21/"},{"title":"短影片廣告 3","url":"https://www.instagram.com/reel/DGKd2p7toNV/"},{"title":"短影片廣告 4","url":"https://www.instagram.com/p/DKGdXN7BSyf/"},{"title":"短影片廣告 6","url":"https://www.instagram.com/p/DDJKTiwh6vn/"},{"title":"短影片廣告 7","url":"https://www.instagram.com/p/DKdr-XQTdXo/"},{"title":"短影片廣告 8","url":"https://www.instagram.com/reel/DGKd2p7toNV/"},{"title":"短影片廣告 9","url":"https://www.instagram.com/rqverycute/reel/DCTrqu1hP7B/"},{"title":"短影片廣告 10","url":"https://www.instagram.com/p/DJRNuFRyMdy/"},{"title":"短影片廣告 11","url":"https://www.instagram.com/p/DGzXkTLhyjJ/"},{"title":"短影片廣告 12","url":"https://www.instagram.com/reel/DL7qshjSXMK/"}]},{"name":"藏鏡人系列","key":"behind","items":[{"title":"藏鏡人 1","url":"https://www.instagram.com/p/DInYfEKyuK3/"},{"title":"藏鏡人 2","url":"https://www.instagram.com/p/DH370JFzFka/"},{"title":"藏鏡人 3","url":"https://www.instagram.com/p/DJlCFbgBvbs/"},{"title":"藏鏡人 4","url":"https://www.instagram.com/p/DJLMJ8cBrQh/"},{"title":"藏鏡人 5","url":"https://www.instagram.com/p/DJGBI0VBDRz/"}]},{"name":"形象影片","key":"brand","items":[{"title":"形象影片 1","url":"https://www.instagram.com/p/DLj-XoiTlyI/"},{"title":"形象影片 2","url":"https://www.instagram.com/p/DJl1UNnz3F6/"},{"title":"形象影片 3","url":"https://www.instagram.com/p/DH3pfAUzqq3/"},{"title":"形象影片 4","url":"https://www.instagram.com/p/DMpj7CXTFR7/"},{"title":"形象影片 5","url":"https://www.instagram.com/p/DMaqy4pz8qA/"},{"title":"形象影片 6","url":"https://www.instagram.com/p/DMcnM5sT-QY/"}]},{"name":"證言廣告","key":"testimony","items":[{"title":"證言廣告 1","url":"https://youtu.be/3Wa_3spT3aY"},{"title":"證言廣告 2","url":"https://youtu.be/Tj7lKWKZj8U"},{"title":"證言廣告 3","url":"https://youtu.be/fQcpSTPE4fM"},{"title":"證言廣告 4","url":"https://youtu.be/vhtDZfVhafM"},{"title":"證言廣告 5","url":"https://youtu.be/t9nsWWcfKWI"},{"title":"證言廣告 6","url":"https://youtu.be/-VRPXP1yW7U"},{"title":"證言廣告 7","url":"https://youtu.be/kp4x2ClTR90"},{"title":"證言廣告 8","url":"https://youtu.be/zOPASyqrOqc"}]},{"name":"節目製作","key":"shows","items":[{"title":"節目製作 1","url":"https://www.youtube.com/watch?v=t0_lI52JDeI"},{"title":"節目製作 2","url":"https://www.youtube.com/watch?v=jO_J0opLGcE&t=76s"},{"title":"節目製作 3","url":"https://www.youtube.com/watch?v=xQEgmB6asXA&t=70s"},{"title":"節目製作 4","url":"https://youtu.be/tuqjc_3dMdg"},{"title":"節目製作 5","url":"https://youtu.be/7cLpRdSYzfc"},{"title":"節目製作 6","url":"https://youtu.be/h1R7CxRCJRc"},{"title":"節目製作 7","url":"https://youtu.be/JtdX1qPKWcA"},{"title":"節目製作 8","url":"https://youtu.be/eWtQGFsnxJI"},{"title":"節目製作 9","url":"https://youtu.be/JAeJV8I-fP0"},{"title":"節目製作 10","url":"https://youtu.be/jUovV89BiiA"},{"title":"節目製作 11","url":"https://youtu.be/wx8Y7VIKfgQ"},{"title":"節目製作 12","url":"https://www.youtube.com/watch?v=GC6jZYH3njs"},{"title":"節目製作 13","url":"https://www.youtube.com/watch?v=VZRkXoK_9Dc"},{"title":"節目製作 14","url":"https://www.youtube.com/watch?v=1itzE92qo9I"},{"title":"節目製作 15","url":"https://www.youtube.com/watch?v=nSFi6or-uQs"},{"title":"節目製作 16","url":"https://www.youtube.com/watch?v=efSXeNzd7-U"}]}]};</script>
+
+<script>
+/* ===== 預設資料（含所有分類與連結） ===== */
+const defaultData={site:{title:"RQ娛樂影像工作室",pageTitle:"RQ娛樂影像工作室｜作品集",description:"RQ娛樂影像工作室｜日系清爽的影像敘事：Podcast、短影片廣告、形象影片、證言廣告、節目製作。",ogImage:"",heroTitle:"把生活拍成故事，把品牌拍成記憶。",heroLead:"我們專注於 Podcast 節目製作、短影片廣告、形象影片、證言廣告、節目企劃與執行。極簡畫面裡，留下最剛好的情緒與光。",igUrl:"https://www.instagram.com/rqverycute",fbUrl:"#",notes:{quick:"私訊 IG 或 FB，提供大綱／預算／時程，我們 24 小時內回覆。",ig:"追蹤日常與最新作品，歡迎直接私訊洽談。",fb:"同步發布專案花絮與上線資訊，歡迎留言。"}},embeds:{playlistId:"PLWPzSr-SQ2_oVby6sNPnVS7mzcG8Dv4Nz",featuredVideoId:"t0_lI52JDeI"},categories:[{name:"PODCAST 節目",key:"podcast",items:[{title:"《白目情侶週記》播放清單",url:"https://youtube.com/playlist?list=PLWPzSr-SQ2_oVby6sNPnVS7mzcG8Dv4Nz&si=IzthrcTC3XichKtF"}]},{name:"短影片廣告",key:"shortads",items:[{title:"短影片廣告 1",url:"https://www.instagram.com/p/DK3to-PhV25/"},{title:"短影片廣告 2",url:"https://www.instagram.com/p/DK4TC7Uytk8/"},{title:"短影片廣告 3",url:"https://www.instagram.com/reel/DGKd2p7toNV/"},{title:"短影片廣告 4",url:"https://www.instagram.com/p/DKGdXN7BSyf/"},{title:"短影片廣告 5",url:"https://www.instagram.com/p/DEjHmrfBR21/"},{title:"短影片廣告 6",url:"https://www.instagram.com/p/DDJKTiwh6vn/"},{title:"短影片廣告 7",url:"https://www.instagram.com/p/DKdr-XQTdXo/"},{title:"短影片廣告 8",url:"https://www.instagram.com/reel/DGKd2p7toNV/"},{title:"短影片廣告 9",url:"https://www.instagram.com/rqverycute/reel/DCTrqu1hP7B/"},{title:"短影片廣告 10",url:"https://www.instagram.com/p/DJRNuFRyMdy/"},{title:"短影片廣告 11",url:"https://www.instagram.com/p/DGzXkTLhyjJ/"},{title:"短影片廣告 12",url:"https://www.instagram.com/reel/DL7qshjSXMK/"}]},{name:"藏鏡人系列",key:"behind",items:[{title:"藏鏡人 1",url:"https://www.instagram.com/p/DInYfEKyuK3/"},{title:"藏鏡人 2",url:"https://www.instagram.com/p/DH370JFzFka/"},{title:"藏鏡人 3",url:"https://www.instagram.com/p/DJlCFbgBvbs/"},{title:"藏鏡人 4",url:"https://www.instagram.com/p/DJLMJ8cBrQh/"},{title:"藏鏡人 5",url:"https://www.instagram.com/p/DJGBI0VBDRz/"}]},{name:"形象影片",key:"brand",items:[{title:"形象影片 1",url:"https://www.instagram.com/p/DLj-XoiTlyI/"},{title:"形象影片 2",url:"https://www.instagram.com/p/DJl1UNnz3F6/"},{title:"形象影片 3",url:"https://www.instagram.com/p/DH3pfAUzqq3/"},{title:"形象影片 4",url:"https://www.instagram.com/p/DMpj7CXTFR7/"},{title:"形象影片 5",url:"https://www.instagram.com/p/DMaqy4pz8qA/"},{title:"形象影片 6",url:"https://www.instagram.com/p/DMcnM5sT-QY/"}]},{name:"證言廣告",key:"testimony",items:[{title:"證言廣告 1",url:"https://youtu.be/3Wa_3spT3aY"},{title:"證言廣告 2",url:"https://youtu.be/Tj7lKWKZj8U"},{title:"證言廣告 3",url:"https://youtu.be/fQcpSTPE4fM"},{title:"證言廣告 4",url:"https://youtu.be/vhtDZfVhafM"},{title:"證言廣告 5",url:"https://youtu.be/t9nsWWcfKWI"},{title:"證言廣告 6",url:"https://youtu.be/-VRPXP1yW7U"},{title:"證言廣告 7",url:"https://youtu.be/kp4x2ClTR90"},{title:"證言廣告 8",url:"https://youtu.be/zOPASyqrOqc"}]},{name:"節目製作",key:"shows",items:[{title:"節目製作 1",url:"https://www.youtube.com/watch?v=t0_lI52JDeI"},{title:"節目製作 2",url:"https://www.youtube.com/watch?v=jO_J0opLGcE&t=76s"},{title:"節目製作 3",url:"https://www.youtube.com/watch?v=xQEgmB6asXA&t=70s"},{title:"節目製作 4",url:"https://youtu.be/tuqjc_3dMdg"},{title:"節目製作 5",url:"https://youtu.be/7cLpRdSYzfc"},{title:"節目製作 6",url:"https://youtu.be/h1R7CxRCJRc"},{title:"節目製作 7",url:"https://youtu.be/JtdX1qPKWcA"},{title:"節目製作 8",url:"https://youtu.be/eWtQGFsnxJI"},{title:"節目製作 9",url:"https://youtu.be/JAeJV8I-fP0"},{title:"節目製作 10",url:"https://youtu.be/jUovV89BiiA"},{title:"節目製作 11",url:"https://youtu.be/wx8Y7VIKfgQ"},{title:"節目製作 12",url:"https://www.youtube.com/watch?v=GC6jZYH3njs"},{title:"節目製作 13",url:"https://www.youtube.com/watch?v=VZRkXoK_9Dc"},{title:"節目製作 14",url:"https://www.youtube.com/watch?v=1itzE92qo9I"},{title:"節目製作 15",url:"https://www.youtube.com/watch?v=nSFi6or-uQs"},{title:"節目製作 16",url:"https://www.youtube.com/watch?v=efSXeNzd7-U"}]}]};
+
+/* ===== 狀態載入 ===== */
+const injectedData=(typeof EXPORTED_SITE_DATA!=="undefined")?EXPORTED_SITE_DATA:null;
+const saved=localStorage.getItem("rq_site_data");
+let siteData=injectedData||(saved?JSON.parse(saved):defaultData);
+
+/* ===== DOM ===== */
+const grid=document.getElementById('grid'),catList=document.getElementById('catList');
+const search=document.getElementById('search'),panel=document.getElementById('panel'),btnAdmin=document.getElementById('btnAdmin'),tip=document.getElementById('tip');
+const btnToggleGroup=document.getElementById('btnToggleGroup'),btnExpandAll=document.getElementById('btnExpandAll'),btnCollapseAll=document.getElementById('btnCollapseAll');
+const podcastEmbed=document.getElementById('podcastEmbed'),videoEmbed=document.getElementById('videoEmbed');
+const btnEditPlaylist=document.getElementById('btnEditPlaylist'),btnEditVideo=document.getElementById('btnEditVideo');
+
+/* ===== 狀態 ===== */
+let isEditing=false,grouped=true; let dragCtx=null;
+
+/* ===== 渲染：分類 + 封面 ===== */
+function renderGrid(){
+  const q=search.value.trim().toLowerCase();
+  if(grouped){
+    grid.style.display='none'; catList.style.display='block'; catList.innerHTML='';
+    siteData.categories.forEach(cat=>{
+      const items=cat.items.filter(it=>(it.title+" "+it.url).toLowerCase().includes(q));
+      if(items.length===0) return;
+      const catEl=document.createElement('div'); catEl.className='cat';
+      const cover=document.createElement('div'); cover.className='cover';
+      cover.innerHTML=`<div class="cover-inner"><div class="cover-info"><h3>${cat.name}</h3><p>${coverSubtitle(cat.key)}　<span class="cat-count">共 ${items.length} 項</span></p></div><div class="cover-illu">${coverSVG(cat.key)}</div></div>`;
+      cover.onclick=()=>{ catEl.classList.toggle('open'); };
+      const head=document.createElement('div'); head.className='cat-head';
+      const title=document.createElement('div'); title.className='cat-title'; title.innerHTML=`<span class="dot"></span><span>${cat.name}</span>`;
+      const actions=document.createElement('div'); actions.className='cat-actions';
+      const tgl=document.createElement('button'); tgl.className='btn small'; tgl.textContent='展開';
+      tgl.onclick=()=>{ catEl.classList.toggle('open'); tgl.textContent=catEl.classList.contains('open')?'收合':'展開'; };
+      actions.appendChild(tgl); head.append(title,actions);
+      const body=document.createElement('div'); body.className='cat-body';
+      const inner=document.createElement('div'); inner.className='grid'; inner.dataset.cat=cat.key;
+
+      items.forEach(it=>{ const idx=cat.items.indexOf(it); inner.appendChild(buildCard(cat,idx)); });
+
+      inner.addEventListener('dragover',e=>{
+        if(!isEditing||!dragCtx) return; if(dragCtx.catKey!==cat.key) return;
+        e.preventDefault(); const targetCard=e.target.closest('.card');
+        document.querySelectorAll('.drop-target').forEach(n=>n.classList.remove('drop-target'));
+        if(targetCard) targetCard.classList.add('drop-target');
+      });
+      inner.addEventListener('dragleave',()=>{ document.querySelectorAll('.drop-target').forEach(n=>n.classList.remove('drop-target')); });
+      inner.addEventListener('drop',e=>{
+        if(!isEditing||!dragCtx) return; if(dragCtx.catKey!==cat.key) return;
+        e.preventDefault(); const targetCard=e.target.closest('.card');
+        const toIdx= targetCard ? parseInt(targetCard.dataset.idx,10) : cat.items.length-1;
+        reorderWithin(cat.key, dragCtx.fromIdx, toIdx); dragCtx=null;
+      });
+
+      body.appendChild(inner);
+      catEl.append(cover,head,body);
+      catList.appendChild(catEl);
+    });
+  }else{
+    catList.style.display='none'; grid.style.display='grid'; grid.innerHTML='';
+    siteData.categories.forEach(cat=>{
+      cat.items.forEach((it,idx)=>{
+        const text=(it.title+" "+it.url).toLowerCase();
+        if(q && !text.includes(q)) return;
+        grid.appendChild(buildCard(cat,idx,false));
+      });
+    });
+  }
+  document.body.classList.toggle('editing',isEditing);
+  btnEditPlaylist.style.display=isEditing?'inline-flex':'none';
+  btnEditVideo.style.display=isEditing?'inline-flex':'none';
+}
+
+/* ===== 卡片 ===== */
+function buildCard(cat,idx,draggable=true){
+  const it=cat.items[idx];
+  const card=document.createElement('div'); card.className='card'; card.dataset.cat=cat.key; card.dataset.idx=idx;
+  if(draggable && isEditing && grouped){
+    card.setAttribute('draggable','true');
+    card.addEventListener('dragstart',e=>{ dragCtx={catKey:cat.key,fromIdx:idx}; card.classList.add('dragging'); e.dataTransfer.setData('text/plain',JSON.stringify(dragCtx));});
+    card.addEventListener('dragend',()=>{ card.classList.remove('dragging'); document.querySelectorAll('.drop-target').forEach(n=>n.classList.remove('drop-target')); });
+  }else{ card.removeAttribute('draggable'); }
+  const btnX=document.createElement('button'); btnX.className='x'; btnX.title='刪除'; btnX.textContent='×';
+  btnX.onclick=()=>{ if(confirm('確定刪除此連結？')){ cat.items.splice(idx,1); renderGrid(); saveToLocal('已刪除'); } };
+  const btnEdit=document.createElement('button'); btnEdit.className='edit'; btnEdit.title='編輯'; btnEdit.textContent='✎';
+  btnEdit.onclick=()=> editItem(cat,idx);
+  const dragIcon=document.createElement('div'); dragIcon.className='drag-hint'; dragIcon.title='拖曳排序'; dragIcon.innerHTML='⋮⋮';
+  card.append(btnX,btnEdit,dragIcon);
+  const t=document.createElement('div'); t.className='title'; t.textContent=it.title; t.contentEditable=isEditing; t.oninput=()=>{ it.title=t.textContent; };
+  const m=document.createElement('div'); m.className='meta'; try{ m.textContent=new URL(it.url).hostname.replace('www.',''); }catch(e){ m.textContent='連結'; }
+  const row=document.createElement('div'); row.className='actions';
+  const open=document.createElement('a'); open.className='btn small open'; open.textContent='開啟連結'; open.href=it.url; open.target='_blank'; open.rel='noopener';
+  row.append(open); card.append(t,m,row); return card;
+}
+
+/* ===== 拖曳排序：同分類內重排 ===== */
+function reorderWithin(catKey,from,to){
+  if(from===to) return; const cat=siteData.categories.find(c=>c.key===catKey); if(!cat) return;
+  const list=cat.items; const item=list.splice(from,1)[0]; let toIdx=to; if(toIdx<0) toIdx=0; if(toIdx>list.length) toIdx=list.length; list.splice(toIdx,0,item);
+  saveToLocal('已重新排序'); renderGrid();
+}
+
+/* ===== 封面插圖 ===== */
+function coverSubtitle(key){switch(key){case 'podcast': return '兩人一麥・好好說話';case 'shortads': return '短影即擊中・一鏡入魂';case 'behind': return '藏鏡人・幕後紀錄';case 'brand': return '形象構築・光與影的名片';case 'testimony': return '真實口碑・說服力上線';case 'shows': return '節目企劃・內容製作';default: return '精選作品';}}
+function coverSVG(key){const stroke='#9C6B3D', orange='var(--orange)'; if(key==='podcast'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="338" fill="none"/><circle cx="180" cy="170" r="60" fill="#FFEFD9" stroke="${stroke}" stroke-width="3"/><circle cx="420" cy="170" r="60" fill="#FFEFD9" stroke="${stroke}" stroke-width="3"/><rect x="278" y="130" width="44" height="120" rx="10" fill="${orange}"/><rect x="270" y="248" width="60" height="12" rx="6" fill="#E3C7A2"/><line x1="260" y1="130" x2="340" y2="130" stroke="${stroke}" stroke-width="3"/><line x1="260" y1="250" x2="340" y2="250" stroke="${stroke}" stroke-width="3"/><circle cx="180" cy="170" r="6" fill="${stroke}"/><circle cx="420" cy="170" r="6" fill="${stroke}"/></svg>`} if(key==='shortads'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect x="70" y="70" width="220" height="140" rx="14" fill="#FFF" stroke="${stroke}" stroke-width="3"/><polygon points="125,125 205,170 125,215" fill="${orange}"/><rect x="360" y="90" width="150" height="190" rx="16" fill="#FFF" stroke="${stroke}" stroke-width="3"/><circle cx="435" cy="150" r="34" fill="#FFE5C2" stroke="${stroke}" stroke-width="3"/><rect x="415" y="205" width="40" height="40" rx="8" fill="${orange}"/></svg>`} if(key==='behind'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><path d="M60 170 Q300 70 540 170 Q300 270 60 170Z" fill="#FFEFD9" stroke="${stroke}" stroke-width="3"/><circle cx="300" cy="170" r="46" fill="${orange}"/><rect x="230" y="60" width="140" height="28" rx="6" fill="#FFF" stroke="${stroke}" stroke-width="3"/><rect x="230" y="92" width="140" height="18" rx="4" fill="#FFF" stroke="${stroke}" stroke-width="3"/></svg>`} if(key==='brand'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><circle cx="170" cy="170" r="70" fill="#FFF" stroke="${stroke}" stroke-width="3"/><circle cx="170" cy="170" r="30" fill="${orange}"/><circle cx="420" cy="170" r="90" fill="none" stroke="${stroke}" stroke-width="3" stroke-dasharray="6 10"/><circle cx="420" cy="170" r="30" fill="${orange}"/></svg>`} if(key==='testimony'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect x="120" y="90" width="360" height="140" rx="16" fill="#FFF" stroke="${stroke}" stroke-width="3"/><text x="150" y="160" font-size="64" fill="${orange}" font-family="serif">“ ”</text><rect x="220" y="240" width="160" height="12" rx="6" fill="#E3C7A2"/></svg>`} if(key==='shows'){return `<svg viewBox="0 0 600 338" xmlns="http://www.w3.org/2000/svg"><rect x="120" y="70" width="360" height="200" rx="14" fill="#FFF" stroke="${stroke}" stroke-width="3"/><polygon points="300,130 360,170 300,210" fill="${orange}"/><rect x="240" y="280" width="120" height="10" rx="5" fill="#E3C7A2"/></svg>`} return `<svg viewBox="0 0 600 338"></svg>`;}
+
+/* ===== 文案/連結注入、儲存、匯出 ===== */
+const editableIds=["siteTitle","heroTitle","heroLead","quickNote","igNote","fbNote"];
+const linkIds=[{id:"ctaIG",key:"igUrl"},{id:"ctaFB",key:"fbUrl"},{id:"igLink",key:"igUrl"},{id:"fbLink",key:"fbUrl"}];
+function hydrateText(){document.getElementById('siteTitle').textContent=siteData.site.title;document.getElementById('heroTitle').textContent=siteData.site.heroTitle;document.getElementById('heroLead').textContent=siteData.site.heroLead;document.getElementById('quickNote').textContent=siteData.site.notes.quick;document.getElementById('igNote').textContent=siteData.site.notes.ig;document.getElementById('fbNote').textContent=siteData.site.notes.fb;document.getElementById('footTitle').textContent=siteData.site.title;document.title=siteData.site.pageTitle||siteData.site.title;linkIds.forEach(({id,key})=>{const a=document.getElementById(id); if(a) a.href=siteData.site[key]||"#";});updateEmbeds();}
+function toast(t){tip.textContent=t;tip.style.display='block';setTimeout(()=>{tip.style.display='none'},2000);}
+function addLink(){const cats=siteData.categories.map(c=>c.name).join(" / ");const cName=prompt("新增到哪個分類？（輸入分類全名）\n"+cats); if(!cName) return; const cat=siteData.categories.find(c=>c.name===cName.trim()); if(!cat){alert("找不到此分類");return;} const url=prompt("貼上連結 URL："); if(!url) return; const title=prompt("顯示標題：","新連結"); cat.items.push({title:title||"未命名連結",url}); saveToLocal("已新增連結");}
+function exportFile(){saveToLocal("準備匯出…"); let html=document.documentElement.outerHTML; const stateScript=`<script>var EXPORTED_SITE_DATA=${JSON.stringify(siteData)};<\/script>`; html=html.replace("<!-- __STATE_INJECT__ -->",stateScript); const blob=new Blob([html],{type:"text/html;charset=utf-8"}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=(siteData.site.title||'RQ-portfolio')+".html"; a.click(); URL.revokeObjectURL(a.href); toast("已下載單檔 HTML");}
+function slugify(s){return s.trim().toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9\-]/g,'');}
+function addCategory(){const name=prompt("新分類名稱："); if(!name) return; let key=slugify(name); if(siteData.categories.some(c=>c.key===key)) key=key+(Date.now()%1000); siteData.categories.push({name,key,items:[]}); saveToLocal("已新增分類");}
+function renameCategory(){const list=siteData.categories.map(c=>c.name).join(' / '); const oldName=prompt("欲重新命名的分類（輸入全名）：\n"+list); if(!oldName) return; const cat=siteData.categories.find(c=>c.name===oldName.trim()); if(!cat){alert('找不到分類');return;} const nn=prompt("新分類名稱：",cat.name); if(!nn) return; cat.name=nn.trim(); saveToLocal("已更名");}
+function deleteCategory(){const list=siteData.categories.map(c=>c.name).join(' / '); const name=prompt("要刪除哪個分類？（輸入全名）：\n"+list); if(!name) return; const idx=siteData.categories.findIndex(c=>c.name===name.trim()); if(idx===-1){alert('找不到分類');return;} if(!confirm(`刪除分類「${name}」及其所有連結？`))return; siteData.categories.splice(idx,1); saveToLocal("已刪除分類");}
+function editItem(cat,idx){const it=cat.items[idx]; const t=prompt('修改標題：',it.title); if(t!==null) it.title=t.trim()||it.title; const u=prompt('修改 URL：',it.url); if(u!==null) it.url=u.trim()||it.url; saveToLocal('已更新卡片');}
+
+/* 播放器 */
+function ytPlaylistUrl(id){return `https://www.youtube.com/embed/videoseries?list=${encodeURIComponent(id)}&rel=0&modestbranding=1`;}
+function ytVideoUrl(id){return `https://www.youtube.com/embed/${encodeURIComponent(id)}?rel=0&modestbranding=1`;}
+function updateEmbeds(){const listId=siteData.embeds?.playlistId||defaultData.embeds.playlistId; const vidId=siteData.embeds?.featuredVideoId||defaultData.embeds.featuredVideoId; podcastEmbed.src=ytPlaylistUrl(listId); videoEmbed.src=ytVideoUrl(vidId);}
+
+/* ====== 固定帳密登入（無重設） ====== */
+const FIXED_USER="rqveryfilm";
+const FIXED_PASS_HASH="ce8c9b642485c653cc0f250141b01758c6b333ed2d1abc7230c88b458617a7db"; // cj86u4QQ
+const loginMask=document.getElementById('loginMask');
+async function sha256(t){const enc=new TextEncoder().encode(t);const buf=await crypto.subtle.digest('SHA-256',enc);return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');}
+function showLogin(){loginMask.style.display='flex';} function hideLogin(){loginMask.style.display='none';}
+document.getElementById('btnDoLogin').onclick=async()=>{const u=document.getElementById('lgUser').value.trim(); const p=document.getElementById('lgPass').value.trim(); if(u!==FIXED_USER){alert("帳號錯誤");return;} const ok=(await sha256(p))===FIXED_PASS_HASH; if(!ok){alert("密碼錯誤");return;} hideLogin(); enterEdit();};
+document.getElementById('btnCancelLogin').onclick=()=> hideLogin();
+
+/* ====== 編輯模式 ====== */
+function enterEdit(){isEditing=true; document.querySelector('.admin-fab').style.display='block'; document.getElementById('btnAdmin').style.display='inline-flex'; panel.classList.add('show'); btnAdmin.textContent="管理中"; editableIds.forEach(id=>{const el=document.getElementById(id); el.setAttribute('contenteditable','true'); el.classList.add('admin');}); renderGrid(); toast("已進入管理模式（Shift+M / 長按或連點 LOGO）");}
+function exitEdit(){isEditing=false; panel.classList.remove('show'); btnAdmin.textContent="管理"; editableIds.forEach(id=>{const el=document.getElementById(id); el.removeAttribute('contenteditable'); el.classList.remove('admin');}); renderGrid();}
+document.getElementById('btnExit').onclick=()=> exitEdit();
+document.getElementById('btnLogout').onclick=()=>{ exitEdit(); document.querySelector('.admin-fab').style.display='none'; document.getElementById('btnAdmin').style.display='none'; toast("已登出");};
+
+/* 管理鈕（登入後可用來切換面板） */
+document.getElementById('btnAdmin').onclick=()=>{ if(isEditing){ panel.classList.toggle('show'); } else { showLogin(); } };
+
+/* ====== 熱鍵：Shift + M ====== */
+document.addEventListener('keydown',(e)=>{ if(e.shiftKey && (e.key==='M' || e.key==='m')){ if(isEditing){ panel.classList.toggle('show'); } else { showLogin(); } }});
+
+/* ====== 手機 & 隱藏入口：長按 / 三連點 Logo + ?admin=rq ====== */
+(function setupHiddenAdminEntrances(){ const logo = document.querySelector('.logo'); const qs = new URLSearchParams(location.search); const ADMIN_KEY = "rq"; if (qs.get('admin') === ADMIN_KEY) showLogin(); let lpTimer=null,touching=false; const startLP=()=>{touching=true;lpTimer=setTimeout(()=>{if(touching) showLogin();},1200);}; const cancelLP=()=>{touching=false;clearTimeout(lpTimer);}; logo.addEventListener('touchstart',startLP,{passive:true}); logo.addEventListener('touchend',cancelLP,{passive:true}); logo.addEventListener('touchmove',cancelLP,{passive:true}); logo.addEventListener('mousedown',startLP); logo.addEventListener('mouseup',cancelLP); logo.addEventListener('mouseleave',cancelLP); let taps=0,firstTapAt=0; logo.addEventListener('click',()=>{ const now=Date.now(); if(now-firstTapAt>1500){taps=0;firstTapAt=now;} taps++; if(taps===1) firstTapAt=now; if(taps>=3){taps=0;showLogin();} });})();
+
+/* 事件：一般操作 */
+document.getElementById('btnSave').onclick=()=> saveToLocal();
+document.getElementById('btnReset').onclick=()=>{ if(confirm("確定清除瀏覽器中的暫存？（不影響原檔）")){localStorage.removeItem("rq_site_data"); siteData=injectedData||defaultData; hydrateText(); renderGrid(); toast("已清除儲存");}};
+document.getElementById('btnExport').onclick=()=> exportFile();
+document.getElementById('btnAdd').onclick=()=> addLink();
+document.getElementById('btnSettings').onclick=()=> openSettings();
+document.getElementById('btnAddCat').onclick=()=> addCategory();
+document.getElementById('btnRenameCat').onclick=()=> renameCategory();
+document.getElementById('btnDeleteCat').onclick=()=> deleteCategory();
+search.addEventListener('input',()=> renderGrid());
+btnToggleGroup.addEventListener('click',()=>{grouped=!grouped;btnToggleGroup.textContent=grouped?'分類清單':'卡片總覽';renderGrid();});
+btnExpandAll.addEventListener('click',()=>{document.querySelectorAll('.cat').forEach(c=>c.classList.add('open'));});
+btnCollapseAll.addEventListener('click',()=>{document.querySelectorAll('.cat').forEach(c=>c.classList.remove('open'));});
+
+/* 設定 */
+function openSettings(){const s=siteData.site; const t=prompt("網站顯示名稱（頁面 H1）：",s.title||''); if(t!==null) s.title=t.trim()||s.title; const pt=prompt("瀏覽器分頁標題（<title>）：",s.pageTitle||document.title); if(pt!==null) s.pageTitle=pt.trim()||s.pageTitle; const d=prompt("SEO 描述（meta description）：",s.description||''); if(d!==null) s.description=d.trim(); const og=prompt("OG 圖片網址（分享縮圖）：",s.ogImage||''); if(og!==null) s.ogImage=og.trim(); const ig=prompt("Instagram 連結：",s.igUrl||''); if(ig!==null) s.igUrl=ig.trim(); const fb=prompt("Facebook 連結：",s.fbUrl||''); if(fb!==null) s.fbUrl=fb.trim(); saveToLocal("已更新站點設定");}
+
+/* Init */
+function init(){const y=document.getElementById('year'); if(y) y.textContent=new Date().getFullYear(); hydrateText(); renderGrid(); updateEmbeds();}
+init();
+/* ========== 🔥 Firebase 即時同步整合 🔥 ========== */
+</script>
+<script>
+if (typeof window.siteData === "undefined") {
+  if (typeof siteData !== "undefined") {
+    window.siteData = siteData;
+  } else if (typeof defaultData !== "undefined") {
+    window.siteData = defaultData;
+  } else {
+    window.siteData = {};
+  }
+}
+</script>
+<script type="module">
+  // 引入 Firebase
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+  import { getFirestore, doc, getDoc, setDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+  // 你的 Firebase 設定
+  const firebaseConfig = {
+    apiKey: "AIzaSyAXy9M_I_RdbjoDsjPleRFzamjPanBLKCA",
+    authDomain: "rqveryfilm.firebaseapp.com",
+    projectId: "rqveryfilm",
+    storageBucket: "rqveryfilm.appspot.com",
+    messagingSenderId: "778310367808",
+    appId: "1:778310367808:web:bb0ed0b7bb50b2d0874f"
+  };
+
+  // 初始化 Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const SITE_DOC = doc(db, "siteData", "main");
+
+  // 從 Firebase 載入資料
+  async function loadFromFirebase() {
+    try {
+      const snap = await getDoc(SITE_DOC);
+      if (snap.exists()) {
+        window.siteData = snap.data();
+        window.hydrateText();
+        window.renderGrid();
+        console.log('✅ 已從 Firebase 載入資料');
+      } else {
+        // 第一次使用，把預設資料存到 Firebase
+        await setDoc(SITE_DOC, window.siteData);
+        console.log('✅ 已初始化 Firebase 資料');
+      }
+    } catch (error) {
+      console.error('❌ Firebase 載入失敗:', error);
+      alert('連線 Firebase 失敗，請檢查網路');
+    }
+  }
+
+  // 即時監聽：任何裝置修改，其他裝置立刻更新
+  onSnapshot(SITE_DOC, (snap) => {
+    if (snap.exists()) {
+      window.siteData = snap.data();
+      window.hydrateText();
+      window.renderGrid();
+      console.log('🔄 資料已同步更新');
+    }
+  }, (error) => {
+    console.error('❌ Firebase 監聽失敗:', error);
+  });
+
+  // 修改原本的 saveToLocal 函式，改為存到 Firebase
+  const originalSaveToLocal = window.saveToLocal;
+  window.saveToLocal = async function(msg = "已儲存") {
+    // 收集頁面內容（使用原本的邏輯）
+    window.siteData.site.title = document.getElementById('siteTitle').textContent.trim();
+    window.siteData.site.heroTitle = document.getElementById('heroTitle').textContent.trim();
+    window.siteData.site.heroLead = document.getElementById('heroLead').textContent.trim();
+    window.siteData.site.notes.quick = document.getElementById('quickNote').textContent.trim();
+    window.siteData.site.notes.ig = document.getElementById('igNote').textContent.trim();
+    window.siteData.site.notes.fb = document.getElementById('fbNote').textContent.trim();
+
+    try {
+      // 存到 Firebase（會自動觸發其他裝置更新）
+      await setDoc(SITE_DOC, window.siteData);
+      window.toast(msg + ' 🔄 已同步到雲端');
+      console.log('✅ 已儲存到 Firebase');
+    } catch (error) {
+      console.error('❌ Firebase 儲存失敗:', error);
+      window.toast('❌ 儲存失敗：' + error.message);
+    }
+  };
+
+  // 等待 DOM 載入完成後再初始化
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadFromFirebase);
+  } else {
+    loadFromFirebase();
+  }
+</script>
+
+
+
+
+<div class="cgw-ext" data-ext-id="pdnenlnelpdomajfejgapbdpmjkfpjkp"></div><cgw-writer-modal data-wxt-shadow-root="" class="cgw_main_container"></cgw-writer-modal><div class="glasp-extension-toaster" style="display: block; width: 320px; margin: unset; padding: unset; border: unset; border-radius: unset; outline: unset; background-color: unset; box-shadow: unset; position: fixed; top: 40px; right: 24px; z-index: 9999;"></div><button id="cgw_action_btn" tabindex="-1" style="position: absolute; top: -9999px; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;"></button><use-chat-gpt-ai id="USE_CHAT_GPT_AI_ROOT" class="close" data-version="8.32.1" style="transition: 0.1s ease-in-out;"></use-chat-gpt-ai><use-chat-gpt-ai-content-menu id="USE_CHAT_GPT_AI_ROOT_Context_Menu"></use-chat-gpt-ai-content-menu><use-chat-gpt-ai id="maxai-global-popup-container" translate="no"></use-chat-gpt-ai><max-ai-minimum-app id="USE_CHAT_GPT_AI_ROOT_Minimize_Container" data-version="8.32.1"></max-ai-minimum-app><div id="MAXAI_SNACKBAR_CONTAINER" style="z-index: 2147483647; color: rgb(255, 255, 255); position: absolute;"><span></span></div></body><div class="glasp-extension" style="display: block; width: unset; margin: unset; padding: unset; border: unset; border-radius: unset; outline: unset; background-color: unset; box-shadow: unset; position: fixed; bottom: 16px; right: 16px; z-index: 9999;"><div class="glasp-extension" style="font-family: inherit;"></div></div></html>
